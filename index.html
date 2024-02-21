@@ -64,7 +64,7 @@
 
                         <div class="favorite_coffee_slider">            
                             <div class="drinks_container">
-                                <img src="images/favorite_drinks_frappuccino.svg" alt="Favorite Drink">
+                                <img class="img_drinks" src="/images/favorite_drinks_frappuccino.svg" alt="Favorite Drink">
                                 <div class="favorite_drinks_text">
                                     <p class="favorite_drinks_name">S’mores Frappuccino</p>
                                     <p class="favorite_drinks_description">This new drink takes an espresso and mixes it with brown sugar and cinnamon before being topped with oat milk.</p>
@@ -77,7 +77,7 @@
 
 
                             <!-- <div class="drinks_container">
-                                <img src="images/favorite_drinks_macchiato.svg" alt="Favorite Drink">
+                                <img class="img_drinks" src="/images/favorite_drinks_macchiato.svg" alt="Favorite Drink">
                                 <div class="favorite_drinks_text">
                                     <p class="favorite_drinks_name">Caramel Macchiato</p>
                                     <p class="favorite_drinks_description">Fragrant and unique classic espresso with rich caramel-peanut syrup, with cream under whipped thick foam.</p>
@@ -85,7 +85,7 @@
                                 </div>
                             </div>                    
                             <div class="drinks_container">
-                                <img src="images/favorite_drinks_coffee.svg" alt="Favorite Drink">
+                                <img class="img_drinks" src="/images/favorite_drinks_coffee.svg" alt="Favorite Drink">
                                 <div class="favorite_drinks_text">
                                     <p class="favorite_drinks_name">Ice coffee</p>
                                     <p class="favorite_drinks_description">A popular summer drink that tones and invigorates. Prepared from coffee, milk and ice.</p>
@@ -99,7 +99,7 @@
                             
                         </div>
                         <div class="right_coffee_bottun">
-                            <img src="images/button_icon_right.svg" alt="Button Right">
+                            <img src="/images/button_icon_right.svg" alt="Button Right">
                         </div>
                     </div>
                 <div class="input_radio">
@@ -117,10 +117,10 @@
                 <div class="abot_container">
                     <p class="about_info">Resource is <span class="span_italic">the perfect and cozy place</span> where you can enjoy a variety of hot beverages, relax, catch up with friends, or get some work done.</p>
                     <div class="about_pictures">
-                        <img class="about_image1" src="images/about_girl_coffee.svg" alt="Girl and coffee">
-                        <img class="about_image2" src="images/about_cup_coffee.svg" alt="Coffee on the table">
-                        <img class="about_image3" src="images/about_man_coffee.svg" alt="Man and coffee">
-                        <img class="about_image4" src="images/about_pare_coffee.svg" alt="A date with coffee">
+                        <div class="about_img"><img class="about_image" src="/images/about_girl_coffee.svg" alt="Girl and coffee"></div>
+                        <div class="about_img"><img class="about_image" src="/images/about_cup_coffee.svg" alt="Coffee on the table"></div>
+                        <div class="about_img"><img class="about_image" src="/images/about_man_coffee.svg" alt="Man and coffee"></div>
+                        <div class="about_img"><img class="about_image" src="/images/about_pare_coffee.svg" alt="A date with coffee"></div>
                     </div>
                 </div>
             </section>
@@ -137,7 +137,7 @@
                         <div class="mobile_app_buttons">
                             <div class="mobile_app_store">
                                 <div class="apple_icon">
-                                    <img src="./icons/icon_apple.svg" alt="Apple Store">
+                                    <img src="/icons/icon_apple.svg" alt="Apple Store">
                                 </div>
                                 <div class="available_text">
                                     <p class="available_on">Available on the</p>
@@ -146,7 +146,7 @@
                             </div>
                             <div class="mobile_google_play">
                                 <div class="google_icon">
-                                    <img src="./icons/icon_google.svg" alt="Google Play">
+                                    <img src="/icons/icon_google.svg" alt="Google Play">
                                 </div>
                                 <div class="available_text">
                                     <p class="available_on">Available on</p>
@@ -156,12 +156,49 @@
                         </div>
                     </div>
                     <div class="mobile_image">
-                        <img src="./images/mobile_phones.svg" alt="Mobile phones">
+                        <img class="img_mobile" src="/images/mobile_phones.svg" alt="Mobile phones">
                     </div>
                 </div>
             </section>
         </main>
-        <footer></footer>
+
+
+<!-- Fives container  -->   
+
+
+        <footer class="contact">
+            <section class="contact_container">
+                <div class="contact_icon_text">
+                    <p class="footer_text">Sip, Savor, Smile. <br><span class="span_italic">It’s coffee time!</span></p>
+                    <div class="contact_icons">
+                        <a class="twitter_icon" href="#">
+                            <img src="/icons/footer_icon_twitter.svg" alt="Twitter icon">
+                        </a>
+                        <a class="instagram_icon" href="#">
+                            <img src="/icons/footer_icon_instagram.svg" alt="Instagram icon">
+                        </a>
+                        <a class="facebook_icon" href="#">
+                            <img src="/icons/footer_icon_facebook.svg" alt="Facebook icon">
+                        </a>
+                    </div>
+                </div>               
+                <div class="contact_us" href="#">
+                    <p class="contact_us_text">Contact us</p>
+                    <a class="contact_location">
+                        <img src="/icons/footer_icon_pin.svg" alt="Point icon">
+                        <p class="street_adres">8558 Green Rd., &zwnj; LA</p>
+                    </a>
+                    <a class="contact_phone" href="#">
+                        <img src="/icons/footer_icon_phone.svg" alt="Phone icon">
+                        <p class="phone_number">+1 (603) 555-0123</p>
+                    </a>
+                    <a class="contact_work_time" href="#">
+                        <img src="/icons/footer_icon_clock.svg" alt="O'clock icon">
+                        <p class="work_time">Mon-Sat: 9:00 AM – 23:00 PM</p>
+                    </a>
+                </div>
+            </section>
+        </footer>
     </div>
     <script src="main.js"></script>
 </body>
