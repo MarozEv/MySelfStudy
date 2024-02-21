@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Inter:regular,500,600,800);
+@import url(https://fonts.googleapis.com/css?family=Inter:regular,500,600,800,italic,600);
 
 *, *h1, *h2,*h3,*h4,*p{
     padding: 0;
@@ -36,7 +36,7 @@ body{
 
 
 .wrapper {
-    padding: 20px 0;
+    padding: 20px 0px 13px 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,14 +45,16 @@ body{
 .header_logo {
 }
 .header_navigation {
+    margin: 0px 0px 11px 35px;
 }
 .nav_header{
-    padding-right: 40px;
+    padding-right: 36px;
     font-weight: 600;
     color: #403F3D;
 }
 
 .header_menu {
+    margin: 0 0 7px 0px;
     font-weight: 600;
     color: #403F3D;
     display: flex;
@@ -65,10 +67,11 @@ body{
 /* --------------- HERO CONTAINER----------------- */
 
 .hero{
+    margin: 0 0 102px 0;
     background-image: url("/images/hero_background.jpg");
-    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
-    border-radius: 50px;
+    border-radius: 40px;
     height: 644px;
 }
 
@@ -82,14 +85,14 @@ body{
     
 }
 .Enjoy_premium {
-    margin: 0 0 40px 0;
+    margin: 0 0 42px 0;
     font-size: 72px;
     font-weight: 600;
     line-height: 75.6px;
     color: #E1D4C9;  
 }
 .span_italic {
-    font-style: italic;
+    font-style:italic;
     color: #B0907A;
 }
 .second_premiun_text {
@@ -104,9 +107,67 @@ body{
     border-radius: 100px;
     background-color: #E1D4C9;
     font-family: Inter;
+    font-size: 16px;
     font-weight: 600;
 
 }
 
 
 /* --------------- FAVORITE COFFEE----------------- */
+
+.main {
+}
+.favorite_coffee {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1360px;
+}
+.favorite_coffee_main_text {
+    margin: 0 0 40px 0;
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 75px;
+}
+
+.favorite_coffee_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.favorite_coffee_slider{
+    max-width: 35%;
+}
+
+.left_coffee_bottun {
+}
+.drinks_container {
+}
+.favorite_drinks_text {
+    margin: 0 0 0 0;
+    text-align: center;
+
+}
+.favorite_drinks_name {
+    margin: 12px 0 0 0;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+}
+.favorite_drinks_description {
+    margin: 16px 0 0 0;
+}
+.favorite_drinks_cost {
+    margin: 16px 0 0 0;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+}
+.input_radio{
+    margin: 30px 0 0 0;
+}
+.radio_point{
+    margin: 0 35px 0 0
+}
