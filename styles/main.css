@@ -1,0 +1,112 @@
+@import url(https://fonts.googleapis.com/css?family=Inter:regular,500,600,800);
+
+*, *h1, *h2,*h3,*h4,*p{
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: #403F3D;
+    text-decoration: none;
+}
+
+body{
+    margin: 0;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+
+.body_background{
+    background-color: #E1D4C9;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+ 
+/* --------------- HEADER CONTAINER----------------- */
+
+.header {
+    max-width: 1440px;
+}
+.header_wrapper {
+    max-width: 1360px;
+    margin: auto;
+}
+
+
+.wrapper {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_logo {
+}
+.header_navigation {
+}
+.nav_header{
+    padding-right: 40px;
+    font-weight: 600;
+    color: #403F3D;
+}
+
+.header_menu {
+    font-weight: 600;
+    color: #403F3D;
+    display: flex;
+}
+.word_menu {
+    color: #403F3D;
+    padding-right: 8px;
+}
+
+/* --------------- HERO CONTAINER----------------- */
+
+.hero{
+    background-image: url("/images/hero_background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50px;
+    height: 644px;
+}
+
+.premiun_container {
+    max-width: 530px;
+    padding: 100px 0 0 100px;
+}
+.premium_main_text {
+    display: flex;
+    flex-direction: column;
+    
+}
+.Enjoy_premium {
+    margin: 0 0 40px 0;
+    font-size: 72px;
+    font-weight: 600;
+    line-height: 75.6px;
+    color: #E1D4C9;  
+}
+.span_italic {
+    font-style: italic;
+    color: #B0907A;
+}
+.second_premiun_text {
+    margin: 0 0 40px 0;
+    color: #E1D4C9;
+    
+}
+.menu_button_coffe {
+    height: 64px;
+    width: 200px;
+    border: none;
+    border-radius: 100px;
+    background-color: #E1D4C9;
+    font-family: Inter;
+    font-weight: 600;
+
+}
+
+
+/* --------------- FAVORITE COFFEE----------------- */
