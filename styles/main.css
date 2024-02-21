@@ -15,6 +15,7 @@ body{
     font-family: Inter;
     font-weight: 400;
     line-height: 24px;
+    color: #403F3D;
 }
 
 
@@ -170,4 +171,112 @@ body{
 }
 .radio_point{
     margin: 0 35px 0 0
+}
+
+/* --------------- ABOUT----------------- */
+
+.about{
+    max-width: 1360px;
+    margin: 0 auto;
+}
+
+
+.about_info{
+    margin: 90px 0 40px 0;
+    font-weight: 600;
+    font-size: 60px;
+    line-height: 75px;
+}
+.about_pictures{
+    margin: 0 0 0 0;
+    column-count: 2;
+    column-gap: 40px;
+}
+.about_image{
+    margin: 0 0 0 0;
+}
+
+.about_image1{
+    margin: 0 0 32px 0;
+}
+.about_image2{
+    border-radius: 20px;
+    margin: 0 0 0 0;
+}
+.about_image3{
+    border-radius: 20px;
+    margin: 0 0 32px 0;
+}
+.about_image4{
+    border-radius: 20px;
+    margin: 0 0 0 0;
+}
+
+
+/* --------------- MOBILE APP ----------------- */
+
+
+.mobile_app {
+}
+.mobile_app_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    max-width: 1360px;
+    margin: 0 auto;
+    margin-top: 94px;
+}
+.mobile_app_information {
+    max-width: 630px;
+}
+.mobile_main_text {
+    margin: 0px 0 40px 0;
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 75px;
+}
+
+.mobile_second_text {
+    margin: 0px 0 40px 0;
+}
+.mobile_app_buttons {
+    display: flex;
+    padding: 0 0 8px 0px;
+}
+.mobile_app_store {
+    display: flex;
+    align-items: center;
+    margin: 0px 16px 0 0;
+    border: 1px solid black;
+    border-radius: 100px;
+    width: 200px;
+    height: 64px;
+}
+.apple_icon {
+    padding: 6px 14px 0 22px;
+}
+.available_text {
+    padding: 1px 0 0 0;
+}
+.available_on {
+    margin: 0 0 0 0;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 14px;
+}
+.app_store {
+    margin: 0 0 0 0;
+}
+.mobile_google_play {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 100px;
+    width: 200px;
+    height: 64px;
+}
+.google_icon {
+    padding: 6px 8px 0 22px;
+}
+.mobile_image {
 }
