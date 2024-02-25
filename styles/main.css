@@ -97,6 +97,7 @@ body{
     font-weight: 600;
     color: #403F3D;
     max-height: 19px;
+    cursor: pointer;
 }
 .header_menu:after{
     content: '';
@@ -188,6 +189,7 @@ body{
     font-family: Inter;
     font-size: 16px;
     font-weight: 600;
+    cursor: pointer;
 }
 .coffee_cup_hover{
    
@@ -235,7 +237,9 @@ body{
 }
 .visible,
 .next{
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .to_left{
@@ -279,13 +283,27 @@ body{
     z-index: 100;
 }
 
-
-
-
 .left_coffee_bottun {
     z-index: 100;
 }
 
+.hero_buttomFill,
+.hero_buttomSvg{
+    transition: all .5s linear;
+}
+.fill_dark{
+    cursor: pointer;
+    fill: #665F55;
+}
+.stroke_light{
+    stroke: #E1D4C9;
+}
+.stroke_dark{
+    stroke: #665F55;
+}
+.fill_light{
+    fill: #E1D4C9;
+}
 
 .favorite_drinks_text {
     margin: 0 0 0 0;
@@ -317,6 +335,7 @@ body{
     height: 4px;
     border-radius: 100px;
     background: #C1B6AD;
+    transition: all .6s linear;
 }
 .radio_point:nth-child(2){
     margin: 0px 12px 0px 12px;
@@ -335,7 +354,7 @@ body{
 
 .slider{
     width: 35%;
-    height: 100%;
+    min-height: 100%;
     overflow: hidden;
     
 }
@@ -344,6 +363,7 @@ body{
 }
 .absolute_container{
     position: absolute;
+   
 }
 
 
@@ -432,15 +452,28 @@ body{
     display: flex;
     padding: 0 0 8px 0px;
 }
+
 .mobile_app_store {
     display: flex;
     align-items: center;
     margin: 0px 16px 0 0;
-    border: 1px solid black;
+    border: 1px solid #403F3D;
     border-radius: 100px;
     width: 200px;
     height: 64px;
+    transition: all .5s linear;
+    cursor: pointer;
+        &:hover{
+            background-color: #403F3D;
+            color:#C1B6AD;
+        }
 }
+.app_icon,
+.goog_icon{
+    transition: all .5s linear;
+}
+
+
 .apple_icon {
     padding: 6px 14px 0 22px;
 }
@@ -459,10 +492,16 @@ body{
 .mobile_google_play {
     display: flex;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid #403F3D;
     border-radius: 100px;
     width: 200px;
     height: 64px;
+    transition: all .5s linear;
+    cursor: pointer;
+        &:hover{
+            background-color: #403F3D;
+            color:#C1B6AD;
+        }
 }
 .google_icon {
     padding: 6px 8px 0 22px;
@@ -504,18 +543,19 @@ body{
     color: #E1D4C9;
 }
 
-.contact_icons {
-}
 .twitter_icon{
     margin: 0 8px 0 0;
 }
 .instagram_icon{
     margin: 0 7px 0 0;
 }
-.facebook_icon{
+
+.footer_icon_twit,
+.footer_icon_inst,
+.footer_icon_face{
+    transition: all .5s linear;
 }
-.contact_us {
-}
+
 .contact_us_text { 
     font-weight: 600;
     font-size: 24px;
