@@ -18,6 +18,11 @@
     margin: 0;
 }
 
+
+html{
+    scroll-behavior: smooth;
+}
+
 a {
     color: #403F3D;
     text-decoration: none;
@@ -62,18 +67,54 @@ body{
 .header_navigation {
     margin: 0px 0px 11px 35px;
 }
-.nav_header{
-    padding-right: 36px;
+.nav_header{ 
+    position: relative;
     font-weight: 600;
     color: #403F3D;
+    margin: 0 36px 0 0;
 }
 
-.header_menu {
-    margin: 0 0 7px 0px;
+.nav_header:after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    display: block;
+    height: 2px;
+    border-radius: 100px;
+    background-color: #665F55;
+    width: 0;
+    transition: .5s;
+    transform: translateX(-50%);
+}
+.nav_header:hover:after{
+  width: 100%;
+}
+.header_menu{
+    position: relative;
+    display: flex;
+    margin: 0 0 15px 0px;
     font-weight: 600;
     color: #403F3D;
-    display: flex;
+    max-height: 19px;
 }
+.header_menu:after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    display: block;
+    height: 2px;
+    border-radius: 100px;
+    background-color: #665F55;
+    width: 0;
+    transition: .5s;
+    transform: translateX(-50%);
+}
+.header_menu:hover:after{
+    width: 100%;
+}
+
 .word_menu {
     color: #403F3D;
     padding-right: 8px;
@@ -115,7 +156,30 @@ body{
     color: #E1D4C9;
     
 }
-.menu_button_coffe {
+.hero_menu_text{
+    position: relative;
+    transition: .3s ease-in-out;
+}
+.hero_menu_left{
+    transform: translateX(-15px);
+    transition: .3s ease-in-out;
+}
+.coffee_cup_ico{
+    position: absolute;
+    left: 56%;
+    opacity: 0;
+    transition: .3s ease-in-out;
+}
+.coffee_cup_opacity{
+    opacity: 100;
+    transition: .3s ease-in-out;
+}
+
+.buttom_menu_hero{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 64px;
     width: 200px;
     border: none;
@@ -124,8 +188,15 @@ body{
     font-family: Inter;
     font-size: 16px;
     font-weight: 600;
-
 }
+.coffee_cup_hover{
+   
+}
+
+.coffee_cup_block{
+   
+}
+
 
 
 /* --------------- FAVORITE COFFEE----------------- */
@@ -138,6 +209,7 @@ body{
     align-items: center;
     margin: 0 auto;
     max-width: 1360px;
+    scroll-behavior: smooth;
 }
 .favorite_coffee_main_text {
     margin: 0 0 40px 0;
@@ -151,21 +223,70 @@ body{
     justify-content: space-between;
     align-items: center;
     width: 100%;
-}
-.favorite_coffee_slider{
-    max-width: 35%;
+    height: 640px;
 }
 
-.left_coffee_bottun {
+
+
+.drinks_container{
+    position: relative;
+    display: none;
+    animation: all .5s ease-in-out;
 }
-.drinks_container {
+.visible,
+.next{
+    display: block;
 }
-.img_drinks{
+
+.to_left{
+    animation-name: left;
+}
+.from_left{
+    animation-name: left;
+    animation-direction: reverse;
+}
+
+.to_right{
+    animation-name: right;
+    animation-direction: reverse;
+}
+.from_right{
+    animation-name: right;
+}
+
+@keyframes left{
+    from{
+        left: 0px;
+    }
+    to{
+        left: -100%;
+    }
+}
+@keyframes right {
+    from{
+        left: 100%;
+    }
+    to{
+        left: 0px;
+    }
+}
+
+/* .img_drinks{
     max-width: 100%;
     height: auto;
-}
+} */
 .right_coffee_bottun {
+    z-index: 100;
 }
+
+
+
+
+.left_coffee_bottun {
+    z-index: 100;
+}
+
+
 .favorite_drinks_text {
     margin: 0 0 0 0;
     text-align: center;
@@ -187,11 +308,47 @@ body{
     line-height: 30px;
 }
 .input_radio{
-    margin: 30px 0 0 0;
+    display: flex;
+    margin: 40px 0 10px 0;
 }
 .radio_point{
-    margin: 0 35px 0 0
+    margin: 0;
+    width: 40px;
+    height: 4px;
+    border-radius: 100px;
+    background: #C1B6AD;
 }
+.radio_point:nth-child(2){
+    margin: 0px 12px 0px 12px;
+}
+.backgraund_dark{
+    background: #665F55;
+}
+.backgraund_ligth{
+    background: #C1B6AD;
+}
+
+
+
+                                                    /* --------------- SLIDER----------------- */
+
+
+.slider{
+    width: 35%;
+    height: 100%;
+    overflow: hidden;
+    
+}
+
+.favorite_coffee_slider{
+}
+.absolute_container{
+    position: absolute;
+}
+
+
+
+
 
 /* --------------- ABOUT----------------- */
 
@@ -230,6 +387,7 @@ body{
     height: auto;
     transition: 0.5s;
     display: block;
+    transform: scale(1.1);
 }
 .about_img:nth-child(1){
     margin: 0 0px 40px 0px;
@@ -238,7 +396,7 @@ body{
     margin: 0 0px 40px 0px;
 }
 .about_image:hover{
-    transform: scale(1.1);
+    transform: scale(1);
 }
                                                     /* --------------- HOVER В Блоке ------------- */
 
@@ -357,7 +515,6 @@ body{
 .facebook_icon{
 }
 .contact_us {
-   
 }
 .contact_us_text { 
     font-weight: 600;
@@ -367,11 +524,36 @@ body{
     margin: 0 0 40px 0;
 }
 .contact_location {
+    position: relative; 
     display: flex;
     align-items: flex-start;
+    max-width: 183px;
     margin: 0 0 20px 0;
 }
-.street_adres, .phone_number, .work_time {
+.contact_location:after, 
+.contact_phone:after,
+.contact_work_time:after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    display: block;
+    height: 2px;
+    border-radius: 100px;
+    background-color: #E1D4C9;
+    width: 0;
+    transition: .5s;
+    transform: translateX(-50%);
+}
+.contact_location:hover:after, 
+.contact_phone:hover:after,
+.contact_work_time:hover:after{
+    width: 100%;
+} 
+
+.street_adres, 
+.phone_number, 
+.work_time {
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
@@ -380,12 +562,14 @@ body{
     padding: 0px 0 0 8px;
 }
 .contact_phone {
+    position: relative;
+    max-width: 175px;
     display: flex;
     align-items: flex-start;
     margin: 0 0 20px 0;
 }
-
 .contact_work_time {
+    position: relative;
     display: flex;
     align-items: flex-start;
     margin: 0 0 3px 0;
