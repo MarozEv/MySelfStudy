@@ -84,74 +84,39 @@ document.querySelector('.footer_icon_face').addEventListener('mouseout', () => {
     document.querySelector('.footer_icon_face path').classList.remove('stroke_dark');
 });
 
-            //  Next Menu show
-
-const mainFirstContent = document.querySelector('.main');
-const mainSecondContent = document.querySelector('.main_container');
-const fotterContent = document.querySelector('.contact');
-function nextMainContent(){
-    mainSecondContent.classList.add('show_block');
-    mainFirstContent.classList.remove('pasity_one');
-    fotterContent.classList.remove('show_block','pasity_one');
-    fotterContent.classList.add('position_absolute',);
-    document.querySelector('.header_menu').classList.add('header_menu_width')
-    setTimeout(()=> {       
-        fotterContent.classList.add('show_block');
-            },10);
-    setTimeout(()=> {
-        mainSecondContent.classList.add('pasity_one');
-        fotterContent.classList.add('pasity_one');
-            },20);
-    setTimeout(()=> {
-        mainFirstContent.classList.remove('show_block');
-        mainSecondContent.classList.add('position_inherit');
-        mainSecondContent.classList.remove('position_absolute');
-        
-            },450);
-}
-function previousMainContent(){
-    mainFirstContent.classList.add('show_block');
-    mainSecondContent.classList.remove('position_inherit');
-    fotterContent.classList.remove('pasity_one');
-    document.querySelector('.header_menu').classList.remove('header_menu_width')
-    setTimeout(()=> {
-        mainFirstContent.classList.add('pasity_one');  
-        mainSecondContent.classList.remove('pasity_one');
-            },1);
-    setTimeout(()=> {
-        
-            },2);
-    setTimeout(()=> {
-        fotterContent.classList.add('pasity_one');
-        fotterContent.classList.remove('position_absolute');
-        mainSecondContent.classList.remove('show_block');
-            },450);
-}
-
-document.querySelector('.buttom_menu_hero').addEventListener('click', nextMainContent);
-document.querySelector('.header_menu').addEventListener('click', nextMainContent);
-
-document.querySelector('.header_logo').addEventListener('click', previousMainContent);
 
 
-const navHeaderButton = document.querySelectorAll('.nav_header')
-document.querySelector('.header_navigation').addEventListener('click', (event) => {
-    for(let i=0; i<navHeaderButton.length-1; i++){
-        if (navHeaderButton[i] == event.target.closest('.nav_header')){
-            previousMainContent();    
-        } 
-    }
+
+                // Scroll Button 
+
+const scrollButton = document.createElement('div');
+scrollButton.classList.add('scroll-button');
+document.querySelector('body').append(scrollButton);
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 800){
+        scrollButton.classList.add('show_block');
+        setTimeout(() => {
+            scrollButton.classList.add('opacity_abit');    
+        },1);
+    }else scrollButton.classList.remove('opacity_abit', 'show_block');
+
+})
+scrollButton.addEventListener('mouseover', (event) => {
+    scrollButton.classList.add('opacity_one')
+});
+scrollButton.addEventListener('click', (event) => {
+    setTimeout(() => {
+        window.scrollTo(0, 0)    
+    },100);
+    scrollButton.classList.remove('opacity_abit', 'hidden_block');
+});
+scrollButton.addEventListener('mouseout', () => {
+    scrollButton.classList.remove('opacity_one');
 })
 
 
-
-
-
-
-
-
-            // Second Menu Listener Button
-
+        // Hover for drink buttons containers
 const drinkButton = document.querySelector('.menu_icons');
 const coffeeMenuButton = document.querySelector('.coffee_button');
 const teaMenuButton = document.querySelector('.tea_button');
@@ -177,41 +142,13 @@ drinkButton.addEventListener('mouseout', (event) => {
     }
 });
 
-            // Chenger drinks Menu
-
-drinkButton.addEventListener('click', (event) => {
-    if (event.target.closest('.coffee_button')) {
-        coffeeMenuButton.classList.add('menu_focus_boutton')
-        teaMenuButton.classList.remove('menu_focus_boutton')
-        desserMenuButton.classList.remove('menu_focus_boutton')
-    } else if (event.target.closest('.tea_button')) {
-        coffeeMenuButton.classList.remove('menu_focus_boutton')
-        teaMenuButton.classList.add('menu_focus_boutton')
-        desserMenuButton.classList.remove('menu_focus_boutton')
-    } else if (event.target.closest('.dessert_button')) {
-        coffeeMenuButton.classList.remove('menu_focus_boutton')
-        teaMenuButton.classList.remove('menu_focus_boutton')
-        desserMenuButton.classList.add('menu_focus_boutton')
-    }
-});
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+            // Hover for drinks containers
 const arrImage = document.querySelectorAll('.drinks_container_img_img')
 const arr = document.querySelectorAll('.coffee_drinks_container');
-
 
 document.querySelector('.menu_coffee_drinks').addEventListener('mouseover', (event) => {
     for (let i=0; i<arr.length; i++){
@@ -235,10 +172,34 @@ document.querySelector('.menu_coffee_drinks').addEventListener('mouseout', (even
 
 
 
+// function renderCards(productCards = 'coffee'){
+//     card.innerHTML = ' '
+//     const newCard = document.createElement('div');
+//     const cards = [];1
+    
+    
+    
+    
+//     switch(productCards){
+//         case 'coffee':
+//             cards = createCoffee()
+//     break;
+//     case 'tea':
+//             createTea()
+//     break;
+//     case 'dessert':
+//             createDessert()
+//     break;
 
+//     }
+     
+    
+//     newCard.innerHTML = 
+//     card.appendChild(newCard);
+// }
 
+// renderCards()
 
- 
 
 
 
