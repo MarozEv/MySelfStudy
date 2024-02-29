@@ -13,7 +13,7 @@
 } */ 
                                                     /* Не нашлось Inter italic */
 
-*, *h1, *h2,*h3,*h4,*p{
+*{
     padding: 0;
     margin: 0;
 }
@@ -39,9 +39,11 @@ body{
 
 .body_background{
     background-color: #E1D4C9;
-    max-width: 1440px;
+    max-width: 1360px;
     margin: 0 auto;
     padding: 0 40px;
+    position: relative;
+    min-height: 2015px;
 }
  
 /* --------------- HEADER CONTAINER----------------- */
@@ -105,7 +107,7 @@ body{
     left: 50%;
     bottom: -5px;
     display: block;
-    height: 2px;
+    height: 2.5px;
     border-radius: 100px;
     background-color: #665F55;
     width: 0;
@@ -123,8 +125,14 @@ body{
 
 /* --------------- HERO CONTAINER----------------- */
 
+.main{
+
+}
+
+
 .hero{
-    margin: 0 0 102px 0;
+    margin: 0 auto;
+    max-width: 1360px;
     background-image: url("/images/hero_background.jpg");
     background-position: center;
     background-size: cover;
@@ -159,21 +167,21 @@ body{
 }
 .hero_menu_text{
     position: relative;
-    transition: .3s ease-in-out;
+    transition: .3s linear;
 }
 .hero_menu_left{
     transform: translateX(-15px);
-    transition: .3s ease-in-out;
+    transition: .3s linear;
 }
 .coffee_cup_ico{
     position: absolute;
-    left: 56%;
+    left: 57%;
     opacity: 0;
-    transition: .3s ease-in-out;
+    transition: .2s linear;
 }
 .coffee_cup_opacity{
     opacity: 100;
-    transition: .3s ease-in-out;
+    transition: .5s linear;
 }
 
 .buttom_menu_hero{
@@ -204,7 +212,12 @@ body{
 /* --------------- FAVORITE COFFEE----------------- */
 
 .main {
+    opacity: 0;
+    position: inherit;
+    display: none;
+    transition: all .5s linear;
 }
+
 .favorite_coffee {
     display: flex;
     flex-direction: column;
@@ -214,7 +227,7 @@ body{
     scroll-behavior: smooth;
 }
 .favorite_coffee_main_text {
-    margin: 0 0 40px 0;
+    margin: 7.4% 0px 3.2% 0;
     font-size: 60px;
     font-weight: 600;
     line-height: 75px;
@@ -410,10 +423,10 @@ body{
     transform: scale(1.1);
 }
 .about_img:nth-child(1){
-    margin: 0 0px 40px 0px;
+    margin: 0 0px 30px 0px;
 }
 .about_img:nth-child(3){
-    margin: 0 0px 40px 0px;
+    margin: 0 0px 30px 0px;
 }
 .about_image:hover{
     transform: scale(1);
@@ -433,7 +446,7 @@ body{
     max-width: 1360px;
     margin: 0 auto;
     margin-top: 94px;
-    margin-bottom: 95px;
+    margin-bottom: 92px;
 }
 .mobile_app_information {
     max-width: 630px;
@@ -518,9 +531,12 @@ body{
 
 
 .contact{
+    display: none;
+    opacity: 0;
     margin: 0 auto;
     max-width: 1360px;
     height: 490px;
+    transition: opacity .5s linear;
 }
 
 .contact_container{
@@ -586,8 +602,8 @@ body{
     transform: translateX(-50%);
 }
 .contact_location:hover:after, 
-.contact_phone:hover:after,
-.contact_work_time:hover:after{
+/* .contact_work_time:hover, */
+.contact_phone:hover:after{
     width: 100%;
 } 
 
@@ -613,4 +629,204 @@ body{
     display: flex;
     align-items: flex-start;
     margin: 0 0 3px 0;
+}
+
+
+
+
+/* --------------- Menu Drinks ----------------- */
+
+
+.main_container{
+    left: 0%;
+    top: 99px;
+    opacity: 0;
+    display: none;
+    position: absolute;
+    transition: opacity .5s linear;
+}
+
+.menu_main_text {
+    margin-bottom: 39px;
+}
+.main_text {
+    margin: auto;
+    text-align: center;
+    max-width: 56%;
+    font-size: 60px;
+    line-height: 75px;
+    font-weight: 600;    
+}
+.menu_icons {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 40px 0; 
+    gap: 14px;
+}
+.coffee_button,
+.tea_button,
+.dessert_button{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    transition: all .5s linear;
+}
+
+.menu_hover_boutton{
+    cursor: pointer;
+    color: #E1D4C9;
+    background-color: #665F55;
+;
+        &::after{
+            background-color: #E1D4C9;
+
+        }
+}
+.menu_focus_boutton{
+    color: #E1D4C9;
+    background-color: #665F55;
+;
+        &::after{
+            background-color: #E1D4C9;
+
+        }
+}
+
+.coffee_button img,
+.tea_button img,
+.dessert_button img{
+    z-index: 2;
+}
+.tea_button {
+    margin: 0px 0 0 0px;
+    border: 1px solid #C1B6AD;
+    width: 90px;
+    height: 46px;
+    border-radius: 100px;
+        &:after{
+            content: "";
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            background-color: #C1B6AD;
+            border-radius: 50%;
+            left: 9px;
+            transition: all .3s linear;
+            z-index: 1;
+        }
+}
+.coffee_button{
+    margin: 0 0px 0 0;
+    border: 1px solid #C1B6AD;
+    width: 115px;
+    height: 46px;
+    border-radius: 100px;
+        &:after{
+            content: "";
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            background-color: #C1B6AD;
+            border-radius: 50%;
+            left: 10px;
+            transition: all .3s linear;
+            z-index: 1;
+    }
+}
+.dessert_button{
+    margin: 0 0px 0 0;
+    border: 1px solid #C1B6AD;
+    width: 124px;
+    height: 46px;
+    border-radius: 100px;
+        &:after{
+            content: "";
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            background-color: #C1B6AD;
+            border-radius: 50%;
+            left: 10px;
+            transition: all .3s linear;
+            z-index: 1;
+    }
+}
+
+.menu_coffee_drinks {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 98px;
+    gap: 38px;
+}
+.coffee_drinks_container {
+    max-width: 308px;
+    min-height: 505px;
+    border: 1px solid #C1B6AD;
+    border-radius: 40px;
+}
+.drinks_container_img {
+    display: flex;
+    justify-content: center;
+    max-height: 310px;
+    overflow: hidden;
+    border-radius: 40px;
+    margin-bottom: 20px;
+    
+}
+
+.drinks_container_img_img {
+    transform: scale(1.1);
+    transition: all .3s linear;
+}
+
+.image_scale{
+    transform: scale(1);
+}
+
+.coffee_drink_second_content {
+    padding: 0 0 0 20px;
+    max-width: 87%;
+}
+.coffee_drink_naim {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+.coffee_drink_description {
+    min-height: 85px;
+}
+.coffe_drink_cost {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+}
+
+
+
+.show_block{
+    display: block;
+}
+.style_absolute{
+    position: absolute;
+}
+.position_absolute{
+    position: absolute;
+    top: 1525.2px;
+    width: 1360px;
+}
+.position_inherit{
+    position: inherit;
+    top: 0px;
+}
+.pasity_one{
+    opacity: 1;
+}
+.header_menu_width:after{
+    width: 100%;
 }

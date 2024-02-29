@@ -63,3 +63,4 @@ rightButtonSlider.addEventListener('click',() => {
         backgraundChenger[elem].classList.add('backgraund_dark');
     }
 });
+
