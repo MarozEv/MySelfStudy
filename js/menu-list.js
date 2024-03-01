@@ -120,7 +120,7 @@ function coffeeDrinkContainer(){
     const imageContainer = createHTMLElement('div','drinks_container_img',coffeeContainer);
         const imageDrink = createHTMLElement('img','drinks_container_img_img',imageContainer);
             imageDrink.alt = ('' + arrCoffeeNaims[i]);
-            imageDrink.src = ('../images/menu/' + arrCoffeeImages[i]);
+            imageDrink.src = ('./images/menu/' + arrCoffeeImages[i]);
     const textContent = createHTMLElement('div','coffee_drink_second_content',coffeeContainer);
         const naimDrink = createHTMLElement('p','coffee_drink_naim',textContent);
             naimDrink.innerHTML = arrCoffeeNaims[i];            
@@ -148,7 +148,7 @@ function teaDrinkContainer(){
     const imageContainer = createHTMLElement('div','drinks_container_img',teaContainer);
         const imageDrink = createHTMLElement('img','drinks_container_img_img',imageContainer);
                 imageDrink.alt = ('' + arrTeaNaims[i]);
-                imageDrink.src = ('../images/menu/' + arrTeaImages[i]);
+                imageDrink.src = ('./images/menu/' + arrTeaImages[i]);
     const textContent = createHTMLElement('div','coffee_drink_second_content',teaContainer);
         const naimDrink = createHTMLElement('p','coffee_drink_naim',textContent);
                 naimDrink.innerHTML = arrTeaNaims[i];            
@@ -178,7 +178,7 @@ function dessertDrinkContainer(){
     const imageContainer = createHTMLElement('div','drinks_container_img',dessertContainer);
         const imageDrink = createHTMLElement('img','drinks_container_img_img',imageContainer);
                 imageDrink.alt = ('' + arrDessertNaims[i]);
-                imageDrink.src = ('../images/menu/' + arrDessertImages[i]);
+                imageDrink.src = ('./images/menu/' + arrDessertImages[i]);
     const textContent = createHTMLElement('div','coffee_drink_second_content',dessertContainer);
         const naimDrink = createHTMLElement('p','coffee_drink_naim',textContent);
                 naimDrink.innerHTML = arrDessertNaims[i];            
