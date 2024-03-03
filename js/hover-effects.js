@@ -87,33 +87,6 @@ document.querySelector('.footer_icon_face').addEventListener('mouseout', () => {
 
 
 
-                // Scroll Button 
-
-const scrollButton = document.createElement('div');
-scrollButton.classList.add('scroll-button');
-document.querySelector('body').append(scrollButton);
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 800){
-        scrollButton.classList.add('show_block');
-        setTimeout(() => {
-            scrollButton.classList.add('opacity_abit');    
-        },1);
-    }else scrollButton.classList.remove('opacity_abit', 'show_block');
-
-})
-scrollButton.addEventListener('mouseover', (event) => {
-    scrollButton.classList.add('opacity_one')
-});
-scrollButton.addEventListener('click', (event) => {
-    setTimeout(() => {
-        window.scrollTo(0, 0)    
-    },100);
-    scrollButton.classList.remove('opacity_abit', 'hidden_block');
-});
-scrollButton.addEventListener('mouseout', () => {
-    scrollButton.classList.remove('opacity_one');
-})
 
 
         // Hover for drink buttons containers
@@ -146,59 +119,9 @@ drinkButton.addEventListener('mouseout', (event) => {
 
 
 
-            // Hover for drinks containers
-const arrImage = document.querySelectorAll('.drinks_container_img_img')
-const arr = document.querySelectorAll('.coffee_drinks_container');
-
-document.querySelector('.menu_coffee_drinks').addEventListener('mouseover', (event) => {
-    for (let i=0; i<arr.length; i++){
-        if (arr[i] == event.target.closest('.coffee_drinks_container')) {
-            arrImage[i].classList.add('image_scale')
-        }       
-    }
-});
-
-document.querySelector('.menu_coffee_drinks').addEventListener('mouseout', (event) => {
-    for (let i=0; i<arr.length; i++){
-        if (arr[i] == event.target.closest('.coffee_drinks_container')) {
-            arrImage[i].classList.remove('image_scale')
-        }       
-    }
-});
 
 
 
-
-
-
-
-// function renderCards(productCards = 'coffee'){
-//     card.innerHTML = ' '
-//     const newCard = document.createElement('div');
-//     const cards = [];1
-    
-    
-    
-    
-//     switch(productCards){
-//         case 'coffee':
-//             cards = createCoffee()
-//     break;
-//     case 'tea':
-//             createTea()
-//     break;
-//     case 'dessert':
-//             createDessert()
-//     break;
-
-//     }
-     
-    
-//     newCard.innerHTML = 
-//     card.appendChild(newCard);
-// }
-
-// renderCards()
 
 
 

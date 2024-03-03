@@ -1,3 +1,4 @@
+const body = document.querySelector('body');
 const mainFirstContent = document.querySelector('.main');
 const mainSecondContent = document.querySelector('.main_container');
 const fotterContent = document.querySelector('.contact');
@@ -62,11 +63,37 @@ function previousMainNavigation(event){
         } 
     }
 };
-
 menuHeroButton.addEventListener('click', nextMainContent);
 menuHeaderButton.addEventListener('click', nextMainContent);
 
+            // Scroll Button 
 
+const scrollButton = document.createElement('div');
+scrollButton.classList.add('scroll-button');
+document.querySelector('body').append(scrollButton);
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 800){
+        scrollButton.classList.add('show_block');
+        setTimeout(() => {
+            scrollButton.classList.add('opacity_abit');    
+        },1);
+    }else scrollButton.classList.remove('opacity_abit', 'show_block');
+
+})
+scrollButton.addEventListener('mouseover', (event) => {
+    scrollButton.classList.add('opacity_one')
+});
+scrollButton.addEventListener('click', (event) => {
+    setTimeout(() => {
+        window.scrollTo(0, 0)    
+    },100);
+    scrollButton.classList.remove('opacity_abit', 'hidden_block');
+});
+scrollButton.addEventListener('mouseout', () => {
+    scrollButton.classList.remove('opacity_one');
+})
+                
 
 
             // Chenger drinks Menu
@@ -97,7 +124,7 @@ drinkButton.addEventListener('click', (event) => {
 const drinkContent = document.querySelector('.menu_coffee_drinks');
 function createHTMLElement(elementType, elementClass,perentElement){
     const element =document.createElement(elementType);
-    element.classList.add(elementClass);-
+    element.classList.add(elementClass);
     perentElement.append(element)
     return element;
 }
@@ -120,7 +147,7 @@ function coffeeDrinkContainer(){
     const imageContainer = createHTMLElement('div','drinks_container_img',coffeeContainer);
         const imageDrink = createHTMLElement('img','drinks_container_img_img',imageContainer);
             imageDrink.alt = ('' + arrCoffeeNaims[i]);
-            imageDrink.src = ('../images/menu/' + arrCoffeeImages[i]);
+            imageDrink.src = ('./images/menu/' + arrCoffeeImages[i]);
     const textContent = createHTMLElement('div','coffee_drink_second_content',coffeeContainer);
         const naimDrink = createHTMLElement('p','coffee_drink_naim',textContent);
             naimDrink.innerHTML = arrCoffeeNaims[i];            
@@ -131,7 +158,6 @@ function coffeeDrinkContainer(){
     coffeeContainer.append(textContent); 
     }
 }
-coffeeDrinkContainer();
 
 
 const arrTeaImages = ['naim_tea_Moroccan.svg','naim_tea_Ginger.svg','naim_tea_Cranberry.svg','naim_tea_SeaBuckthorn.svg'];
@@ -148,7 +174,7 @@ function teaDrinkContainer(){
     const imageContainer = createHTMLElement('div','drinks_container_img',teaContainer);
         const imageDrink = createHTMLElement('img','drinks_container_img_img',imageContainer);
                 imageDrink.alt = ('' + arrTeaNaims[i]);
-                imageDrink.src = ('../images/menu/' + arrTeaImages[i]);
+                imageDrink.src = ('./images/menu/' + arrTeaImages[i]);
     const textContent = createHTMLElement('div','coffee_drink_second_content',teaContainer);
         const naimDrink = createHTMLElement('p','coffee_drink_naim',textContent);
                 naimDrink.innerHTML = arrTeaNaims[i];            
@@ -178,7 +204,7 @@ function dessertDrinkContainer(){
     const imageContainer = createHTMLElement('div','drinks_container_img',dessertContainer);
         const imageDrink = createHTMLElement('img','drinks_container_img_img',imageContainer);
                 imageDrink.alt = ('' + arrDessertNaims[i]);
-                imageDrink.src = ('../images/menu/' + arrDessertImages[i]);
+                imageDrink.src = ('./images/menu/' + arrDessertImages[i]);
     const textContent = createHTMLElement('div','coffee_drink_second_content',dessertContainer);
         const naimDrink = createHTMLElement('p','coffee_drink_naim',textContent);
                 naimDrink.innerHTML = arrDessertNaims[i];            
@@ -190,23 +216,272 @@ function dessertDrinkContainer(){
     }    
 }
 
+// Hover for drinks containers
+
+function listenerOverOut(){
+    const arrImage = document.querySelectorAll('.drinks_container_img_img')
+    const arr = document.querySelectorAll('.coffee_drinks_container');
+    const hoverOverImageMenu = () => (event) => {
+        for (let i=0; i<arr.length; i++){
+            if (arr[i] == event.target.closest('.coffee_drinks_container') ) {
+                arrImage[i].classList.add('image_scale')
+            }       
+        }
+    };
+    const hoverOutImageMenu = () =>(event) => {
+        for (let i=0; i<arr.length; i++){ 
+            if (arr[i] == event.target.closest('.coffee_drinks_container')) {
+                arrImage[i].classList.remove('image_scale')
+            }       
+        }
+    }    
+    drinkContent.addEventListener('mouseover',hoverOverImageMenu(true));
+    drinkContent.addEventListener('mouseout', hoverOutImageMenu(true));    
+}
+
+// Click for drinks containers + Pup-Up
+function clickListenerDrink(){
+    const arr = document.querySelectorAll('.coffee_drinks_container');
+    const clickPupUpMenu = () => (event) => {
+        for (let i=0; i<arr.length; i++){
+            if (arr[i] == event.target.closest('.coffee_drinks_container') ) {
+                createPupUp(arr[i])
+            }       
+        }
+    }
+    drinkContent.addEventListener('click',clickPupUpMenu(true));
+}
+// Create Pup-Up
+const allWindow = createHTMLElement('div','fill', body);
+const pupUp = createHTMLElement('div','pup_up', body);
+function createPupUp(element){
+    pupUp.innerHTML = '';
+    pupUp.classList.add('show_block');
+    allWindow.classList.add('show_block');
+    body.classList.add('overflow_hidden')
+    setTimeout(() => {
+        pupUp.classList.add('pasity_one');
+        allWindow.classList.add('pasity_one');
+    },2);
+    const pupUpContainer = createHTMLElement('div','pup_up_container',pupUp);
+        const leftPupUpContent = createHTMLElement('div','drinks_container_img',pupUpContainer);
+        const imageLeftcontent = createHTMLElement('img','drinks_container_img_img',leftPupUpContent);
+            imageLeftcontent.alt = element.childNodes[1].childNodes[0].innerHTML;
+            imageLeftcontent.src = element.childNodes[0].childNodes[0].src;
+        const rightPupUpContent = createHTMLElement('div','rightPupUpContent',pupUpContainer);
+            // NAIM DRINK
+            const naimDrinkPupUp = createHTMLElement('p','coffee_drink_naim',rightPupUpContent);
+                naimDrinkPupUp.innerHTML = element.childNodes[1].childNodes[0].innerHTML;
+            // DESCRIPTION DRINK
+            const descriptionDrinkPupUp = createHTMLElement('p','drink_description_pupUP',rightPupUpContent);
+                descriptionDrinkPupUp.innerHTML = element.childNodes[1].childNodes[1].innerHTML; 
+            // SIZE DRINK
+            const sizeDrinkPupUp = createHTMLElement('div','sizeDrinkPupUp',rightPupUpContent);
+                const textSizeDrinkPupUp = createHTMLElement('p','sSizeDrinkPupUp',sizeDrinkPupUp);
+                    textSizeDrinkPupUp.innerHTML = 'Size';
+                const containerSML = createHTMLElement('div','containerSML',sizeDrinkPupUp);
+                    const sVolume = createHTMLElement('div','sizeVolume',containerSML);
+                            sVolume.classList.add('volume_activ_button')                                                   
+                        const letterSSize = createHTMLElement('p','letterSSize',sVolume); 
+                            letterSSize.classList.add('letter_activ')                                            
+                            letterSSize.innerHTML = 'S';
+                        const volumeSSize = createHTMLElement('p','volumeSize',sVolume);
+                            volumeSSize.classList.add('text_activ')                                          
+                            volumeSSize.innerHTML = '200 ml';
+                            volumeSSize.dataset.cost = "1"
+                    const mVolume = createHTMLElement('div','sizeVolume',containerSML);
+                        const letterMSize = createHTMLElement('p','letterMSize',mVolume);
+                            letterMSize.innerHTML = 'M';
+                        const volumeMSize = createHTMLElement('p','volumeSize',mVolume);    
+                            volumeMSize.innerHTML = '300 ml';
+                            volumeMSize.dataset.cost = "1.5"           
+                    const lVolume = createHTMLElement('div','sizeVolume',containerSML);
+                        const letterLSize = createHTMLElement('p','letterLSize',lVolume);
+                            letterLSize.innerHTML = 'L';
+                        const volumeLSize = createHTMLElement('p','volumeSize',lVolume);    
+                            volumeLSize.innerHTML = '400 ml';
+                            volumeLSize.dataset.cost = "2" 
+            // ADDITIVIES DRINK                            
+            const additivesDrinkPupUp = createHTMLElement('div','additivesDrinkPupUp',rightPupUpContent);
+                const textAdditivesDrinkPupUp = createHTMLElement('p','textAdditivesDrinkPupUp',sizeDrinkPupUp);
+                    textAdditivesDrinkPupUp.innerHTML = 'Additives';
+                const container123 = createHTMLElement('div','container123',additivesDrinkPupUp);
+                    const oneVolume = createHTMLElement('div','volumeletter',container123);
+                        const letter1 = createHTMLElement('p','letterAdd',oneVolume);
+                            letter1.innerHTML = '1';
+                        const volume1 = createHTMLElement('p','addVolume',oneVolume);    
+                            volume1.innerHTML = 'Sugar';
+                            volume1.dataset.cost = '1.0'
+                    const twoVolume = createHTMLElement('div','volumeletter',container123);
+                        const letter2 = createHTMLElement('p','letterAdd',twoVolume);
+                            letter2.innerHTML = '2';
+                        const volume2 = createHTMLElement('p','addVolume',twoVolume);    
+                            volume2.innerHTML = 'Cinnamon';
+                            volume2.dataset.cost = '1.0'
+                    const threeVolume = createHTMLElement('div','volumeletter',container123);
+                        const letter3 = createHTMLElement('p','letterAdd',threeVolume);
+                            letter3.innerHTML = '3';
+                        const volume3 = createHTMLElement('p','addVolume',threeVolume);    
+                            volume3.innerHTML = 'Syrup';
+                            volume3.dataset.cost = '1.50'
+            // COST DRINK                
+            const totalCostPupUp = createHTMLElement('div','totalCostPupUp',rightPupUpContent);
+                const textTotal = createHTMLElement('p','textTotal',totalCostPupUp);
+                    textTotal.innerHTML = 'Total:'
+                const sumTotal = createHTMLElement('p','sumTotal',totalCostPupUp);
+                    sumTotal.innerHTML = element.childNodes[1].childNodes[2].innerHTML;
+            const informationPupUp = createHTMLElement('div','informationPupUp',rightPupUpContent);
+                const iIconPupUp = createHTMLElement('img','iIconPupUp',informationPupUp);
+                    iIconPupUp.alt = 'Pup-up information'
+                    iIconPupUp.src = './icons/menu/pupUpi.svg'
+                const iTextPupUp = createHTMLElement('p','iTextPupUp',informationPupUp);
+                    iTextPupUp.innerHTML = 'The cost is not final. Download our mobile app to see the final price and place your order. Earn loyalty points and enjoy your favorite coffee with up to 20% discount.'
+            // CLOSE PUP-UP BUTTON
+            const buttonPupUp = createHTMLElement('div','buttonClosePupUp',rightPupUpContent);
+                const closePupUp = createHTMLElement('p','closePupUp',buttonPupUp);
+                    closePupUp.innerHTML = 'Close'
+ 
+                    
+                    //  Size Pup-up button listeners
+const arrSize = containerSML.querySelectorAll('.sizeVolume');
+const drinkCost = Number((element.childNodes[1].childNodes[2].innerHTML).slice(1));
+const additivesSum = document.createElement('p');
+const sizeSum = document.createElement('p');
+sizeSum.textContent = drinkCost;
+function culcCost(){
+    return "$" + (Number(additivesSum.innerHTML) + Number(sizeSum.innerHTML)).toFixed(2)
+}
+const clickSizePupUp = () => (event) =>{
+    let cost = 0;
+    let opition = event.target.closest('.sizeVolume');
+    arrSize.forEach(element => {
+        element.classList.remove('volume_activ_button');
+        element.childNodes[0].classList.remove('letter_activ');
+        element.childNodes[1].classList.remove('text_activ');
+        cost = 0;
+        }
+    );
+    arrSize.forEach(element => {
+        if (element == opition){
+            element.classList.add('volume_activ_button');
+            element.childNodes[0].classList.add('letter_activ');
+            element.childNodes[1].classList.add('text_activ');
+            cost = Number(element.childNodes[1].dataset.cost);
+            sizeSum.textContent = cost*drinkCost
+            culcCost()
+            console.log(culcCost())
+            sumTotal.innerHTML = culcCost()
+
+        }
+    });  
+}
+
+const hoverOverPupUp = (arr, elementStyle) => (event) =>{  
+    for (let i=0; i<arr.length; i++){
+        if (arr[i] == event.target.closest(elementStyle)){
+            arr[i].classList.add('volume_hover_button');
+            arr[i].childNodes[0].classList.add('letter_hover');
+            arr[i].childNodes[1].classList.add('text_hover');  
+        }
+    }
+}  
+const hoverOutPupUp = (arr, elementStyle) => (event) =>{
+    for (let i=0; i<arr.length; i++){
+        if (arr[i] == event.target.closest(elementStyle)){
+            arr[i].classList.remove('volume_hover_button');
+            arr[i].childNodes[0].classList.remove('letter_hover');
+            arr[i].childNodes[1].classList.remove('text_hover');  
+        }
+    }
+} 
+containerSML.addEventListener('click',  clickSizePupUp(true));
+
+containerSML.addEventListener('mouseover',  hoverOverPupUp(arrSize,'.sizeVolume'));   
+containerSML.addEventListener('mouseout',  hoverOutPupUp(arrSize,'.sizeVolume'));   
+
+                    //  Additives Pup-up button listeners
+const arrAdd = container123.querySelectorAll('.volumeletter');
+let sum = 0;
+const clickAddPupUp = () => (event) =>{      
+        let option =  event.target.closest('.volumeletter')
+        if (option){
+            option.classList.toggle('volume_activ_button');
+            option.childNodes[0].classList.toggle('letter_activ');
+            option.childNodes[1].classList.toggle('text_activ');
+            let cost = Number(option.childNodes[1].dataset.cost);
+            sum = option.classList.contains('volume_activ_button') ? sum + cost : sum - cost;
+            additivesSum.textContent = Number(sum.toFixed(2))
+            culcCost()
+            console.log(culcCost()) 
+            sumTotal.innerHTML = culcCost()   
+        }
+}
+
+
+container123.addEventListener('click',  clickAddPupUp(true));
+container123.addEventListener('mouseover',  hoverOverPupUp(arrAdd,'.volumeletter'));   
+container123.addEventListener('mouseout',  hoverOutPupUp(arrAdd,'.volumeletter'));  
+
+                    // Close Pup-up button
+buttonPupUp.addEventListener('mouseover', () => {
+    buttonPupUp.classList.add('text_hover','volume_activ_button')
+})
+buttonPupUp.addEventListener('mouseout', () => {
+    buttonPupUp.classList.remove('text_hover','volume_activ_button')
+})
+
+// close Pup-Up
+const hiddenPupUp = () => (event) =>{ 
+    const fClosePupUp = () =>{
+            pupUp.classList.remove('pasity_one');
+            allWindow.classList.remove('pasity_one');
+            body.classList.remove('overflow_hidden')
+        setTimeout(() => {
+            pupUp.classList.remove('show_block');
+            allWindow.classList.remove('show_block');
+        },200);   
+    }
+    if (event.target.closest('.buttonClosePupUp')){
+        fClosePupUp()
+    } else if (!event.target.closest('.pup_up')){
+        fClosePupUp()
+    }
+    
+    
+}
+
+pupUp.addEventListener('click', hiddenPupUp(true))
+allWindow.addEventListener('click', hiddenPupUp(true))
+
+// containerSML.addEventListener('click', function(event){
+//     let option = event.target.closest('')
+// })
+
+
+
+
+
+ // end create Pup-Up
+}
+// Chenger Drink Conteiners
 function chengeDrinkContainer(drinks = 'coffee'){
     drinkContent.innerHTML = '';
     switch(drinks){
         case 'coffee':
             coffeeDrinkContainer();
+            clickListenerDrink()
                 break;
         case 'tea':
             teaDrinkContainer();
+            clickListenerDrink()
                 break;
         case 'dessert':
             dessertDrinkContainer();
                 break;
     }
+listenerOverOut()
 }
-
-
-
+chengeDrinkContainer()
 
 
 
