@@ -132,7 +132,7 @@ body{
 .hero{
     margin: 0 auto;
     max-width: 1360px;
-    background-image: url("/images/hero_background.jpg");
+    background-image: url("../images/hero_background.jpg");
     background-position: center;
     background-size: cover;
     border-radius: 40px;
