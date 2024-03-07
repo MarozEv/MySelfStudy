@@ -674,8 +674,8 @@ body{
 
 
 .main_container{
-    left: 0%;
-    top: 99px;
+    left: 22px;
+    top: 100px;
     opacity: 0;
     display: none;
     position: absolute;
@@ -1096,6 +1096,7 @@ body{
 .position_inherit{
     position: inherit;
     top: 0px;
+    left: 0;
 }
 .pasity_one{
     opacity: 1;
