@@ -1,0 +1,112 @@
+@media screen and ( max-width: 380px ) {
+    .body_background{
+        padding: 0 15px;
+    }
+    .hero{
+        height: 552px;
+    }
+    .premiun_container{
+        padding: 17.5% 0 0 5%;
+    }
+    .second_premiun_text{
+        max-width: 95%;
+        margin: 0 0 37px 0;
+    }
+    .Enjoy_premium{
+        font-size: 42px;
+        font-weight: 600;
+        line-height: 48.3px;
+    }
+    .favorite_coffee_main_text{
+        margin: 28.4% 0 1% 0px;
+        font-size: 32px;
+        line-height: 40px;
+    }
+    .right_coffee_bottun,
+    .left_coffee_bottun{
+        display: none;
+    }
+    .favorite_coffee_container{
+        justify-content: center;
+        height: 552px;
+    }
+    .slider{
+        width: 100%;
+        min-height: 110%;
+    }
+    .img_drinks{
+        transform: scale(0.725);
+    }
+    .favorite_drinks_text{
+        display: flex;
+        flex-direction: column;
+        margin: -65px auto;
+        width: 348px;
+    }
+    .input_radio{
+        margin: 58px 0 10px 0;  
+    }
+
+    .about_info{
+        font-size: 32px;
+        line-height: 40px;
+    }
+    .about_image_woman,
+    .about_image_pare{
+        transform: scale(0.95);
+        transform-origin: 50% 50%;
+        top: -73px;
+        right: 54%;
+    }
+    .mobile_app_container{
+        gap: 28px;
+    }
+    .mobile_main_text{
+        font-size: 32px;
+        line-height: 40px;    
+    }
+    .mobile_app_buttons{
+        flex-direction: column;
+        gap: 19px;
+    }
+    .footer_text{
+        font-size: 32px;
+        line-height: 40px; 
+    }
+    .contact_icon_text{
+        margin: 56px 0 0 17px;
+    }
+    .contact_us{
+        margin: 34px 0 60px 17px;
+    }
+
+        /* /////////////////////////////////////////////////////////////////////////// */
+                                /* Menu */
+
+    .main_text{
+        max-width: 348px;
+        font-size: 32px;
+        line-height: 40px;
+    }
+    .menu_icons{
+        gap: 8px;
+    }
+    .menu_coffee_drinks{
+        margin-bottom: 104px;
+    }
+        /* /////////////////////////////////////////////////////////////////////////// */
+                                /* Pup-up */
+
+    .pup_up{
+        width: 342px;
+    }
+    .pup_up_container .drinks_container_img{
+        display: none;
+    }
+    .rightPupUpContent{
+        width: 100%;
+    }
+    .buttonClosePupUp{
+        width: 308px;
+    }
+}

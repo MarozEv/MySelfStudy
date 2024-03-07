@@ -2,7 +2,8 @@ const sliderContent = document.querySelectorAll('.drinks_container')
 const sliderPlace = document.querySelector('.favorite_coffee_slider')
 const rightButtonSlider = document.querySelector('.right_coffee_bottun');
 const leftButtonSlider = document.querySelector('.left_coffee_bottun');
-const backgraundChenger = document.querySelectorAll('.radio_point')
+const backgraundChenger = document.querySelectorAll('.radio_point');
+const sliderFavoritDrink = document.querySelector('.slider');
 
 let elem = 0;
 let flag = true;
@@ -43,8 +44,7 @@ function nextItem(i) {
 }
 
 
-
-leftButtonSlider.addEventListener('click',() => {
+const swapToLeft = () => {
     if (flag) {
         previousItem(elem);
         backgraundChenger.forEach(element => {
@@ -53,14 +53,38 @@ leftButtonSlider.addEventListener('click',() => {
         backgraundChenger[elem].classList.add('backgraund_dark');
     }
 
-});
-rightButtonSlider.addEventListener('click',() => {
+}
+const swapToRight = () =>{
     if (flag) {
         nextItem(elem)
         backgraundChenger.forEach(element => {
             element.classList.remove('backgraund_dark');
-        });
-        backgraundChenger[elem].classList.add('backgraund_dark');
-    }
-});
+    });
+    backgraundChenger[elem].classList.add('backgraund_dark');
+}
+}
+leftButtonSlider.addEventListener('click',swapToLeft);
 
+rightButtonSlider.addEventListener('click', swapToRight);
+
+let start = 0;
+sliderFavoritDrink.addEventListener('touchstart', (event) => {
+    start = event;
+});
+sliderFavoritDrink.addEventListener('touchmove', (event) => {
+    if (event){
+        (+(event.touches[0].pageX - start.touches[0].pageX) > 80)
+        ? swapToLeft() :
+        ((event.touches[0].pageX - start.touches[0].pageX) < -80) 
+        ? swapToRight() : {}
+    }
+    
+})
+sliderFavoritDrink.addEventListener('touchend', (event) => {
+    start = 0;
+})
+// sliderFavoritDrink.addEventListener('touchmove', (event) => {
+//     if (event){
+//         +(event.touches[0].pageX - event.touches[touches.lenght-1].pageX) > +event.touches[0].pageX ? swapToRight() : swapToLeft()
+//     }
+// })

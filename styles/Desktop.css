@@ -66,6 +66,9 @@ body{
 .header_logo {
 }
 .header_navigation {
+    display: flex;
+    align-items: center;
+    gap: 331px;
     margin: 0px 0px 11px 35px;
 }
 .nav_header{ 
@@ -94,27 +97,29 @@ body{
 .header_menu{
     position: relative;
     display: flex;
-    margin: 0 0 15px 0px;
     font-weight: 600;
     color: #403F3D;
-    max-height: 19px;
     cursor: pointer;
+        &:after{
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -5px;
+            display: block;
+            height: 2px;
+            border-radius: 100px;
+            background-color: #665F55;
+            width: 0;
+            transition: .5s;
+            transform: translateX(-50%);
+        }
+        &:hover:after{
+            width: 100%;
+        }
 }
-.header_menu:after{
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -5px;
-    display: block;
-    height: 2.5px;
-    border-radius: 100px;
-    background-color: #665F55;
-    width: 0;
-    transition: .5s;
-    transform: translateX(-50%);
+.header_menu{
 }
 .header_menu:hover:after{
-    width: 100%;
 }
 
 .word_menu {
@@ -226,6 +231,7 @@ body{
     scroll-behavior: smooth;
 }
 .favorite_coffee_main_text {
+    text-align: center;
     margin: 7.4% 0px 3.2% 0;
     font-size: 60px;
     font-weight: 600;
@@ -327,6 +333,7 @@ body{
     font-weight: 600;
     font-size: 24px;
     line-height: 30px;
+    
 }
 .favorite_drinks_description {
     margin: 16px 0 0 0;
@@ -391,44 +398,63 @@ body{
 
 
 .about_info{
-    margin: 90px 0 40px 0;
+    margin: 90px 0 39px 0;
     font-weight: 600;
     font-size: 60px;
     line-height: 75px;
 }
 .about_pictures{
     margin: 0 0 0 0;
-    columns: 2 660px;
+    columns: 2;
     column-gap: 40px;
-}
-.about_image{
-    margin: 0 0 0 0;
 }
 
                                                     /* --------------- HOVER В Блоке ------------- */
 
-.about_img {
+.about_img{
     display: inline-block;
     overflow: hidden;
     border-radius: 20px;
-}
+    width: 100%;
+        &:nth-child(1){
+            max-height: 590px;
+            margin: 0 0px 30px 0px;
+        };
+        &:nth-child(2){
+            max-height: 433px;
+            margin: 0 0px 30px 0px;
 
-.about_image{
+        };
+        &:nth-child(3){
+            height: 430px;
+            margin: 0 0px 30px 0px;
+                &:nth-child(1){
+                    top: -104px;
+                }
+        };
+        &:nth-child(4){
+            height: 593px;
+            margin: 0 0px 30px 0px;
+        };
+}
+.about_image_woman,
+.about_image_cup,
+.about_image_man,
+.about_image_pare{
+    position: relative;
     margin: 0;
-    max-width: 100%;
     height: auto;
     transition: 0.5s;
     display: block;
     transform: scale(1.1);
+    top: -35px;
+        &:hover{
+            transform: scale(1);
+        }
 }
-.about_img:nth-child(1){
-    margin: 0 0px 30px 0px;
-}
-.about_img:nth-child(3){
-    margin: 0 0px 30px 0px;
-}
-.about_image:hover{
-    transform: scale(1);
+.about_image_man,
+.about_image_cup{
+    top: -115px;
 }
                                                     /* --------------- HOVER В Блоке ------------- */
 
@@ -469,14 +495,14 @@ body{
     display: flex;
     align-items: center;
     margin: 0px 16px 0 0;
-    border: 1px solid #403F3D;
+    border: 1px solid #665F55;
     border-radius: 100px;
     width: 200px;
     height: 64px;
     transition: all .5s linear;
     cursor: pointer;
         &:hover{
-            background-color: #403F3D;
+            background-color: #665F55;
             color:#C1B6AD;
         }
 }
@@ -504,14 +530,14 @@ body{
 .mobile_google_play {
     display: flex;
     align-items: center;
-    border: 1px solid #403F3D;
+    border: 1px solid #665F55;
     border-radius: 100px;
     width: 200px;
     height: 64px;
     transition: all .5s linear;
     cursor: pointer;
         &:hover{
-            background-color: #403F3D;
+            background-color: #665F55;
             color:#C1B6AD;
         }
 }
@@ -534,7 +560,8 @@ body{
     opacity: 0;
     margin: 0 auto;
     max-width: 1360px;
-    height: 490px;
+    padding-bottom: 40px;
+    /* height: 490px; */
     transition: opacity .5s linear;
 }
 
@@ -543,7 +570,7 @@ body{
     align-items: center;
     justify-content: flex-start;
     width: 100%;
-    height: 450px;
+    min-height: 450px;
     background-color: #665F55;
     border-radius: 40px;
 }
@@ -646,12 +673,14 @@ body{
 }
 
 .menu_main_text {
+    text-align: -webkit-center;
+    margin: 0 auto;
     margin-bottom: 39px;
 }
 .main_text {
-    margin: auto;
     text-align: center;
-    max-width: 56%;
+    max-width: 64%;
+
     font-size: 60px;
     line-height: 75px;
     font-weight: 600;    
@@ -842,7 +871,6 @@ body{
     display: none;
     opacity: 0;
     width: 800px;
-    height: 504px;
     background-color: #E1D4C9;
     border-radius: 40px;
     z-index: 2;
@@ -870,6 +898,7 @@ body{
 }
 .containerSML{
     display: flex;
+    gap: 8px;
     margin: 0px 0 20px 0px;
 }
 .sSizeDrinkPupUp{
@@ -880,20 +909,13 @@ body{
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    padding: 0 16px 0 16px;
     border: 1px solid #C1B6AD;
-    width: 117px;
     height: 46px;
     border-radius: 100px;
     z-index: 1;
     transition: all .5s linear;
 }
-.sizeVolume:nth-child(2){
-    margin: 0 0 0 3px
-}
-.sizeVolume:nth-child(3){
-    margin: 0 0 0 7px;
-}
-
 .letterSSize,
 .letterMSize,
 .letterLSize{
@@ -934,14 +956,11 @@ body{
     align-items: center;
     cursor: pointer;
     border: 1px solid #C1B6AD;
-    width: 108px;
     height: 46px;
     border-radius: 100px;
     transition: all .5s linear;
-}
-.volumeletter:nth-child(2){
-    width: 141px;
-    margin: 0 2px 0 0;
+    width: max-content;
+    padding: 0px 16px 0 18px;
 }
 .letterAdd{
     position: relative;

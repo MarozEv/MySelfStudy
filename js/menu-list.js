@@ -238,15 +238,50 @@ function listenerOverOut(){
     drinkContent.addEventListener('mouseover',hoverOverImageMenu(true));
     drinkContent.addEventListener('mouseout', hoverOutImageMenu(true));    
 }
-
+var drinkInfo = {
+    valueS: '200 ml',
+    costS: '1',
+    valueM: '300 ml',
+    costM: '1.2',
+    valueL: '400 ml',
+    costL: '1.4',
+    firstAdd: 'Sugar',
+    firstAddCost: "0.50",
+    secondtAdd: 'Cinnamon',
+    secondAddCost: '0.50',
+    thirdAdd: 'Syrup',
+    thirdAddCost: "0.30",
+}
+var dessertInfo = {
+    valueS: '50 g',
+    costS: '1',
+    valueM: '100 g',
+    costM: '1.2',
+    valueL: '200 g',
+    costL: '1.5',
+    firstAdd: 'Berries',
+    firstAddCost: "1.5",
+    secondtAdd: 'Nuts',
+    secondAddCost: "1.5",
+    thirdAdd: 'Jam',
+    thirdAddCost: "1",
+}
 // Click for drinks containers + Pup-Up
 function clickListenerDrink(){
     const arr = document.querySelectorAll('.coffee_drinks_container');
     const clickPupUpMenu = () => (event) => {
-        for (let i=0; i<arr.length; i++){
-            if (arr[i] == event.target.closest('.coffee_drinks_container') ) {
-                createPupUp(arr[i])
-            }       
+        for (let i=0; i<arr.length; i++){      
+            if (arr[i] == event.target.closest('.coffee_drinks_container') && (coffeeMenuButton.classList.contains('menu_focus_boutton'))){
+                drinkInfo.secondtAdd = 'Cinnamon';
+                drinkInfo.secondAddCost = '0.50';
+                createPupUp(arr[i], drinkInfo)
+            }else if (arr[i] == event.target.closest('.coffee_drinks_container') && teaMenuButton.classList.contains('menu_focus_boutton')){
+                drinkInfo.secondtAdd = 'Lemon'
+                drinkInfo.secondAddCost = '0.5'
+                createPupUp(arr[i], drinkInfo)
+            }else if (arr[i] == event.target.closest('.coffee_drinks_container') && desserMenuButton.classList.contains('menu_focus_boutton')){
+                createPupUp(arr[i], dessertInfo)
+            }    
         }
     }
     drinkContent.addEventListener('click',clickPupUpMenu(true));
@@ -254,7 +289,7 @@ function clickListenerDrink(){
 // Create Pup-Up
 const allWindow = createHTMLElement('div','fill', body);
 const pupUp = createHTMLElement('div','pup_up', body);
-function createPupUp(element){
+function createPupUp(element, parametrs){
     pupUp.innerHTML = '';
     pupUp.classList.add('show_block');
     allWindow.classList.add('show_block');
@@ -266,64 +301,64 @@ function createPupUp(element){
     const pupUpContainer = createHTMLElement('div','pup_up_container',pupUp);
         const leftPupUpContent = createHTMLElement('div','drinks_container_img',pupUpContainer);
         const imageLeftcontent = createHTMLElement('img','drinks_container_img_img',leftPupUpContent);
-            imageLeftcontent.alt = element.childNodes[1].childNodes[0].innerHTML;
-            imageLeftcontent.src = element.childNodes[0].childNodes[0].src;
+                                    imageLeftcontent.alt = element.childNodes[1].childNodes[0].innerHTML;
+                                    imageLeftcontent.src = element.childNodes[0].childNodes[0].src;
         const rightPupUpContent = createHTMLElement('div','rightPupUpContent',pupUpContainer);
             // NAIM DRINK
             const naimDrinkPupUp = createHTMLElement('p','coffee_drink_naim',rightPupUpContent);
-                naimDrinkPupUp.innerHTML = element.childNodes[1].childNodes[0].innerHTML;
+                                    naimDrinkPupUp.innerHTML = element.childNodes[1].childNodes[0].innerHTML;
             // DESCRIPTION DRINK
             const descriptionDrinkPupUp = createHTMLElement('p','drink_description_pupUP',rightPupUpContent);
-                descriptionDrinkPupUp.innerHTML = element.childNodes[1].childNodes[1].innerHTML; 
+                                    descriptionDrinkPupUp.innerHTML = element.childNodes[1].childNodes[1].innerHTML; 
             // SIZE DRINK
             const sizeDrinkPupUp = createHTMLElement('div','sizeDrinkPupUp',rightPupUpContent);
                 const textSizeDrinkPupUp = createHTMLElement('p','sSizeDrinkPupUp',sizeDrinkPupUp);
-                    textSizeDrinkPupUp.innerHTML = 'Size';
+                                    textSizeDrinkPupUp.innerHTML = 'Size';
                 const containerSML = createHTMLElement('div','containerSML',sizeDrinkPupUp);
                     const sVolume = createHTMLElement('div','sizeVolume',containerSML);
-                            sVolume.classList.add('volume_activ_button')                                                   
+                                    sVolume.classList.add('volume_activ_button')                                                   
                         const letterSSize = createHTMLElement('p','letterSSize',sVolume); 
-                            letterSSize.classList.add('letter_activ')                                            
-                            letterSSize.innerHTML = 'S';
+                                    letterSSize.classList.add('letter_activ')                                            
+                                    letterSSize.innerHTML = 'S';
                         const volumeSSize = createHTMLElement('p','volumeSize',sVolume);
-                            volumeSSize.classList.add('text_activ')                                          
-                            volumeSSize.innerHTML = '200 ml';
-                            volumeSSize.dataset.cost = "1"
+                                    volumeSSize.classList.add('text_activ')                                          
+                                    volumeSSize.innerHTML = parametrs.valueS;
+                                    volumeSSize.dataset.cost = parametrs.costS;
                     const mVolume = createHTMLElement('div','sizeVolume',containerSML);
                         const letterMSize = createHTMLElement('p','letterMSize',mVolume);
-                            letterMSize.innerHTML = 'M';
+                                    letterMSize.innerHTML = 'M';
                         const volumeMSize = createHTMLElement('p','volumeSize',mVolume);    
-                            volumeMSize.innerHTML = '300 ml';
-                            volumeMSize.dataset.cost = "1.5"           
+                                    volumeMSize.innerHTML = parametrs.valueM;
+                                    volumeMSize.dataset.cost = parametrs.costM;       
                     const lVolume = createHTMLElement('div','sizeVolume',containerSML);
                         const letterLSize = createHTMLElement('p','letterLSize',lVolume);
-                            letterLSize.innerHTML = 'L';
+                                    letterLSize.innerHTML = 'L';
                         const volumeLSize = createHTMLElement('p','volumeSize',lVolume);    
-                            volumeLSize.innerHTML = '400 ml';
-                            volumeLSize.dataset.cost = "2" 
+                                    volumeLSize.innerHTML = parametrs.valueL;
+                                    volumeLSize.dataset.cost = parametrs.costL;
             // ADDITIVIES DRINK                            
             const additivesDrinkPupUp = createHTMLElement('div','additivesDrinkPupUp',rightPupUpContent);
                 const textAdditivesDrinkPupUp = createHTMLElement('p','textAdditivesDrinkPupUp',sizeDrinkPupUp);
-                    textAdditivesDrinkPupUp.innerHTML = 'Additives';
+                                    textAdditivesDrinkPupUp.innerHTML = 'Additives';
                 const container123 = createHTMLElement('div','container123',additivesDrinkPupUp);
                     const oneVolume = createHTMLElement('div','volumeletter',container123);
                         const letter1 = createHTMLElement('p','letterAdd',oneVolume);
-                            letter1.innerHTML = '1';
+                                    letter1.innerHTML = '1';
                         const volume1 = createHTMLElement('p','addVolume',oneVolume);    
-                            volume1.innerHTML = 'Sugar';
-                            volume1.dataset.cost = '1.0'
+                                    volume1.innerHTML = parametrs.firstAdd;
+                                    volume1.dataset.cost = parametrs.firstAddCost;
                     const twoVolume = createHTMLElement('div','volumeletter',container123);
                         const letter2 = createHTMLElement('p','letterAdd',twoVolume);
-                            letter2.innerHTML = '2';
+                                     letter2.innerHTML = '2';
                         const volume2 = createHTMLElement('p','addVolume',twoVolume);    
-                            volume2.innerHTML = 'Cinnamon';
-                            volume2.dataset.cost = '1.0'
+                                    volume2.innerHTML = parametrs.secondtAdd;
+                                    volume2.dataset.cost = parametrs.secondAddCost;
                     const threeVolume = createHTMLElement('div','volumeletter',container123);
                         const letter3 = createHTMLElement('p','letterAdd',threeVolume);
-                            letter3.innerHTML = '3';
+                                    letter3.innerHTML = '3';
                         const volume3 = createHTMLElement('p','addVolume',threeVolume);    
-                            volume3.innerHTML = 'Syrup';
-                            volume3.dataset.cost = '1.50'
+                                    volume3.innerHTML = parametrs.thirdAdd;
+                                    volume3.dataset.cost = parametrs.thirdAddCost;
             // COST DRINK                
             const totalCostPupUp = createHTMLElement('div','totalCostPupUp',rightPupUpContent);
                 const textTotal = createHTMLElement('p','textTotal',totalCostPupUp);
@@ -343,10 +378,10 @@ function createPupUp(element){
  
                     
                     //  Size Pup-up button listeners
-const arrSize = containerSML.querySelectorAll('.sizeVolume');
-const drinkCost = Number((element.childNodes[1].childNodes[2].innerHTML).slice(1));
-const additivesSum = document.createElement('p');
-const sizeSum = document.createElement('p');
+var arrSize = containerSML.querySelectorAll('.sizeVolume');
+var drinkCost = Number((element.childNodes[1].childNodes[2].innerHTML).slice(1));
+var additivesSum = document.createElement('p');
+var sizeSum = document.createElement('p');
 sizeSum.textContent = drinkCost;
 function culcCost(){
     return "$" + (Number(additivesSum.innerHTML) + Number(sizeSum.innerHTML)).toFixed(2)
@@ -376,23 +411,23 @@ const clickSizePupUp = () => (event) =>{
     });  
 }
 
-const hoverOverPupUp = (arr, elementStyle) => (event) =>{  
-    for (let i=0; i<arr.length; i++){
-        if (arr[i] == event.target.closest(elementStyle)){
-            arr[i].classList.add('volume_hover_button');
-            arr[i].childNodes[0].classList.add('letter_hover');
-            arr[i].childNodes[1].classList.add('text_hover');  
-        }
-    }
+var hoverOverPupUp = (arr, elementStyle) => (event) =>{  
+    var option = event.target.closest(elementStyle);
+    arr.forEach(element => {
+        option.classList.add('volume_hover_button');
+        option.childNodes[0].classList.add('letter_hover');
+        option.childNodes[1].classList.add('text_hover'); 
+    });
+
 }  
-const hoverOutPupUp = (arr, elementStyle) => (event) =>{
-    for (let i=0; i<arr.length; i++){
-        if (arr[i] == event.target.closest(elementStyle)){
-            arr[i].classList.remove('volume_hover_button');
-            arr[i].childNodes[0].classList.remove('letter_hover');
-            arr[i].childNodes[1].classList.remove('text_hover');  
-        }
-    }
+var hoverOutPupUp = (arr, elementStyle) => (event) =>{
+    var option = event.target.closest(elementStyle);
+    arr.forEach(element => {
+        option.classList.remove('volume_hover_button');
+        option.childNodes[0].classList.remove('letter_hover');
+        option.childNodes[1].classList.remove('text_hover'); 
+        
+    });
 } 
 containerSML.addEventListener('click',  clickSizePupUp(true));
 
@@ -463,25 +498,84 @@ allWindow.addEventListener('click', hiddenPupUp(true))
 
  // end create Pup-Up
 }
+
 // Chenger Drink Conteiners
 function chengeDrinkContainer(drinks = 'coffee'){
     drinkContent.innerHTML = '';
     switch(drinks){
         case 'coffee':
             coffeeDrinkContainer();
-            clickListenerDrink()
                 break;
         case 'tea':
-            teaDrinkContainer();
-            clickListenerDrink()
+            teaDrinkContainer();           
                 break;
         case 'dessert':
             dessertDrinkContainer();
                 break;
     }
-listenerOverOut()
+clickListenerDrink();   
+listenerOverOut();
+showAnotherBlockMenu()
 }
-chengeDrinkContainer()
+chengeDrinkContainer();
 
+
+                                                    // Windiw width 768px
+function createBurgerMenu(){
+    if (window.innerWidth <= 768){
+        const burgerButton = createHTMLElement('div','burger_button_open',document.querySelector('.wrapper'));
+        const burgerButtonFirtLine = createHTMLElement('span','burger_button_first_line',burgerButton);
+        const burgerButtonSecondLine = createHTMLElement('span','burger_button_second_line',burgerButton);
+        const addRemoveClassBurger = () => {
+            burgerButtonFirtLine.classList.toggle('burger_button_first_line_close');
+            burgerButtonSecondLine.classList.toggle('burger_button_second_line_close');
+            headerNavigationButtons.classList.toggle('burger_menu_activ');
+            body.classList.toggle('overflow_hidden')
+        } 
+        const closeOpenBurgerMenu = (event) => {
+            if (event.screenY >= 900 || event.target.closest('.nav_header') || event.target.closest('.header_menu')){
+                addRemoveClassBurger()
+            }
+        }
+
+        headerNavigationButtons.addEventListener('click', closeOpenBurgerMenu)
+        burgerButton.addEventListener('click', addRemoveClassBurger)
+    } 
+    
+};
+createBurgerMenu()
+
+function showAnotherBlockMenu(){
+    if (window.innerWidth <= 768){
+        if (drinkContent.childNodes.length > 4){
+            var refreshButtonMenuList = createHTMLElement('div','refresh_button',drinkContent);
+            const refreshArrowButtonList = createHTMLElement('img','refresh_button_arrow',refreshButtonMenuList);
+                refreshArrowButtonList.alt = "Refresh arrow";
+                refreshArrowButtonList.src = './images/menu/refresh.svg';
+            for(let i=0; i<drinkContent.childNodes.length; i++){
+                if (i>=4 && i<8){
+                    drinkContent.childNodes[i].classList.add('hidden_block')
+                }
+            }
+        }
+        let flag = true;
+        refreshButtonMenuList.addEventListener('click', () => {
+            if (flag){
+                flag = false;
+                    const styles = window.getComputedStyle(refreshButtonMenuList);
+                        let rotate = parseInt(styles.getPropertyValue('--x'));
+                        rotate += 360
+                        refreshButtonMenuList.setAttribute("style", `--x: ${rotate}deg`);
+                for (let i=0; i<drinkContent.childNodes.length; i++){
+                    if (i<8){
+                        drinkContent.childNodes[i].classList.toggle('hidden_block')
+                    }
+                }
+                setTimeout(()=>{flag = true;},1000);
+    
+            }
+        })
+    }
+}
 
 

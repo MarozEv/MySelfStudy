@@ -1,0 +1,204 @@
+@media screen and ( max-width: 768px ) {
+    /* burger menu 768px */
+    .header_navigation{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        left: -35px;
+        top: 97px;
+        gap: 100px;
+        z-index: 3;
+        background: #E1D4C9;
+        transform: translateX(-100%);
+        transition: all .3s ease-in-out;
+    }
+    .header_navigation nav{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 32px;    
+        font-weight: 600;
+        line-height: 40px;
+        gap: 60px;
+        margin: 63px 0 0 37px;
+    }
+    .header_menu{
+        gap: 16px;
+        left: -4px;
+    }
+    .word_menu p{
+        line-height: 40px;
+        font-size: 32px;
+        font-weight: 600;
+    }
+    .menu_cup_ico{
+        transform: scale(1.9);
+        margin: 10px 0px 0 0;
+    }
+    .burger_button_open{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 44px;
+        height: 44px;
+        border: 1.5px solid #665F55;
+        border-radius: 50%;
+        margin: -6px -1px 0 0;
+        cursor: pointer;
+    }
+    .burger_button_first_line,
+    .burger_button_second_line{
+        display: block;
+        width: 16px;
+        height: 1.5px;
+        background: #665F55;
+        transition: all .2s linear;
+    }
+    .burger_menu_activ{
+        transform: translateX(0%);
+    }
+    .burger_button_first_line_close{
+        position: absolute;
+        transform: rotateZ(225deg);
+
+    }
+    .burger_button_second_line_close{
+        position: absolute;
+        transform: rotateZ(315deg);
+    }
+
+    /* /////////////////////////////////////////////////////////////////////////// */
+    /* main 768px */
+    .wrapper{
+        padding: 20px 0 13px 0;
+    }
+    .premiun_container{
+        padding: 14.5% 0 0 9%;
+    }
+    .favorite_coffee_main_text{
+        margin: 14.4% 0 6.1% 0px;
+    }
+    .slider{
+        width: 67%;
+    }
+    .about_pictures{
+        columns: 1;
+    }
+    .about_img:nth-child(1) {
+        max-width: 690px;
+        max-height: 589px;
+        margin-bottom: 33px;
+    }
+    .about_img:nth-child(2){
+        display: none;
+    }
+    .about_img:nth-child(3){
+        display: none;
+    }
+    .about_image_woman,
+    .about_image_pare{
+        transform: scale(1);
+        top: -50px;
+    }
+    .mobile_app_container{
+        margin: 64px 0 0 0;
+    }
+    .mobile_app_container{
+        flex-direction: column;
+        gap: 90px;
+    }
+    .mobile_app_information{
+        max-width: 100%;
+    }
+    /* footer */
+    .contact{
+        margin: 92px 0 0 0;
+    }
+    .contact_container{
+        flex-direction: column;
+        justify-content: normal;
+        align-items: normal;
+    }
+    .contact_icon_text{
+        margin: 95px 0 0 60px;
+    }
+    .contact_us{
+        margin: 95px 0 100px 60px;
+    }
+
+    /*/////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+    /* menu 768px*/
+    .main_text{
+        max-width: 700px;
+    }
+    .refresh_button{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        width: 60px;
+        height: 60px;
+        border: 1.5px solid #665F55;
+        border-radius: 50%;
+        transform-origin: 50% 50% 0;
+        transition: all .8s ease-in-out;
+        --x: 0deg;
+        transform: rotate(var(--x));
+    }
+    .refresh_button_arrow{
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        transition: all .3s ease-in-out;
+    
+    }
+
+        /* /////////////////////////////////////////////////////////////////////////// */
+    /* Pup-up 768px */
+    .pup_up{
+        width: 688px;
+    }
+    .rightPupUpContent{
+        width: 49.5%;
+    }
+    .containerSML{
+        display: flex;
+        gap: 8px;
+        margin: 0px 0 20px 0px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .container123{
+        display: flex;
+        gap: 5px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .informationPupUp{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 52px;
+        border-top: 1px solid #C1B6AD;
+    }
+    .iIconPupUp{
+        margin: -13px 0 0 -4px;
+    }
+    .iTextPupUp{
+        margin: 15px 0 0 0px;
+    }
+    .buttonClosePupUp{
+        max-width: 320px;
+        margin: 32px 0 0 0;
+    }
+
+
+
+}
