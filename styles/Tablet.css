@@ -5,9 +5,10 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: flex-start;
         width: 100%;
         height: 100vh;
-        left: -35px;
+        left: 0px;
         top: 97px;
         gap: 100px;
         z-index: 3;
@@ -76,6 +77,7 @@
     /* /////////////////////////////////////////////////////////////////////////// */
     /* main 768px */
     .wrapper{
+        justify-content: space-between;
         padding: 20px 0 13px 0;
     }
     .premiun_container{
@@ -103,6 +105,7 @@
     }
     .about_image_woman,
     .about_image_pare{
+        right: 0;
         transform: scale(1);
         top: -50px;
     }
@@ -126,6 +129,7 @@
         align-items: normal;
     }
     .contact_icon_text{
+        max-width: 100%;
         margin: 95px 0 0 60px;
     }
     .contact_us{
@@ -138,6 +142,7 @@
         max-width: 700px;
     }
     .refresh_button{
+        display: block;
         position: relative;
         display: flex;
         justify-content: center;
@@ -147,16 +152,16 @@
         height: 60px;
         border: 1.5px solid #665F55;
         border-radius: 50%;
-        transform-origin: 50% 50% 0;
+        user-select: none;
+    }
+    .refresh_button_arrow{
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        transform-origin: 50% 50%;
         transition: all .8s ease-in-out;
         --x: 0deg;
         transform: rotate(var(--x));
-    }
-    .refresh_button_arrow{
-        width: 24px;
-        height: 24px;
-        position: absolute;
-        transition: all .3s ease-in-out;
     
     }
 
@@ -198,7 +203,40 @@
         max-width: 320px;
         margin: 32px 0 0 0;
     }
+}
 
+@media screen and ( max-width: 736px ) {
+    .menu_coffee_drinks, 
+    .menu_tea_drinks, 
+    .menu_dessert_drinks {
+        flex-direction: column;
+    }
+}
 
+@media screen and ( max-width: 650px ) {
+    .Enjoy_premium{
+        font-size: 50px;
+        line-height: 45px;
+    }
+    .right_coffee_bottun,
+    .left_coffee_bottun{
+        display: none;
+    }
+    .favorite_coffee_container {
+        justify-content: center;
+    }
+    .about_image_woman, 
+    .about_image_pare {
+        right: 100px;
+    }
+}
 
+@media screen and ( max-width: 500px ) {
+    .about_image_woman, 
+    .about_image_pare {
+        right: 200px;
+    }
+    .menu_icons{
+        gap: 10px;
+    }
 }

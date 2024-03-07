@@ -1,4 +1,4 @@
-@media screen and ( max-width: 380px ) {
+@media screen and ( max-width: 410px ) {
     .body_background{
         padding: 0 15px;
     }
@@ -21,10 +21,6 @@
         margin: 28.4% 0 1% 0px;
         font-size: 32px;
         line-height: 40px;
-    }
-    .right_coffee_bottun,
-    .left_coffee_bottun{
-        display: none;
     }
     .favorite_coffee_container{
         justify-content: center;
@@ -110,3 +106,14 @@
         width: 308px;
     }
 }
+
+@media screen and (max-width: 370px){
+    .menu_icons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px
+        ;
+    }
+}
+    

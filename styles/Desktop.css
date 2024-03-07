@@ -59,7 +59,7 @@ body{
 .wrapper {
     padding: 20px 0px 13px 0px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -67,9 +67,12 @@ body{
 }
 .header_navigation {
     display: flex;
-    align-items: center;
-    gap: 331px;
-    margin: 0px 0px 11px 35px;
+    width: 100%;
+    margin: 0px 0px 9px 0px;
+    justify-content: flex-end;
+}
+.header_navigation nav {
+    width: 65%;
 }
 .nav_header{ 
     position: relative;
@@ -381,6 +384,12 @@ body{
 .favorite_coffee_slider{
 }
 .absolute_container{
+    width: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
     position: absolute;
    
 }
@@ -575,7 +584,8 @@ body{
     border-radius: 40px;
 }
 .contact_icon_text {
-    margin: 0px 136px 0px 100px;
+    max-width: 45%;
+    margin: 0px 45px 0px 100px;
 }
 .footer_text {
     margin: 5px 0px 40px 0;
@@ -1048,6 +1058,9 @@ body{
 .text_hover{
     color: #E1D4C9;
 }
+.refresh_button{
+    display: none;
+}
 
 
 
@@ -1095,4 +1108,35 @@ body{
 }
 .overflow_hidden{
     overflow-y: hidden;
+}
+
+@media screen and ( max-width: 1290px ) {
+    .header_navigation nav {
+        width: 70%;
+    }
+    .favorite_coffee_container{
+        height: 680px;
+    }
+    .about_image_woman, 
+    .about_image_cup, 
+    .about_image_man, 
+    .about_image_pare {
+        right: 100px;
+    }
+}
+@media screen and ( max-width: 1000px ) {
+    .header_navigation nav {
+        width: 76%;
+    }
+    .about_image_woman, 
+    .about_image_cup, 
+    .about_image_man, 
+    .about_image_pare {
+        right: 200px;
+    }
+}
+@media screen and ( max-width: 830px ) {
+    .header_navigation nav {
+        width: 84%;
+    }
 }

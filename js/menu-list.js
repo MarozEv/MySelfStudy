@@ -411,8 +411,8 @@ const clickSizePupUp = () => (event) =>{
     });  
 }
 
-var hoverOverPupUp = (arr, elementStyle) => (event) =>{  
-    var option = event.target.closest(elementStyle);
+const hoverOverPupUp = (arr, elementStyle) => (event) =>{  
+    const option = event.target.closest(elementStyle);
     arr.forEach(element => {
         option.classList.add('volume_hover_button');
         option.childNodes[0].classList.add('letter_hover');
@@ -420,8 +420,8 @@ var hoverOverPupUp = (arr, elementStyle) => (event) =>{
     });
 
 }  
-var hoverOutPupUp = (arr, elementStyle) => (event) =>{
-    var option = event.target.closest(elementStyle);
+const hoverOutPupUp = (arr, elementStyle) => (event) =>{
+    const option = event.target.closest(elementStyle);
     arr.forEach(element => {
         option.classList.remove('volume_hover_button');
         option.childNodes[0].classList.remove('letter_hover');
@@ -549,7 +549,7 @@ function showAnotherBlockMenu(){
     if (window.innerWidth <= 768){
         if (drinkContent.childNodes.length > 4){
             var refreshButtonMenuList = createHTMLElement('div','refresh_button',drinkContent);
-            const refreshArrowButtonList = createHTMLElement('img','refresh_button_arrow',refreshButtonMenuList);
+            var refreshArrowButtonList = createHTMLElement('img','refresh_button_arrow',refreshButtonMenuList);
                 refreshArrowButtonList.alt = "Refresh arrow";
                 refreshArrowButtonList.src = './images/menu/refresh.svg';
             for(let i=0; i<drinkContent.childNodes.length; i++){
@@ -562,10 +562,10 @@ function showAnotherBlockMenu(){
         refreshButtonMenuList.addEventListener('click', () => {
             if (flag){
                 flag = false;
-                    const styles = window.getComputedStyle(refreshButtonMenuList);
+                    const styles = window.getComputedStyle(refreshArrowButtonList);
                         let rotate = parseInt(styles.getPropertyValue('--x'));
                         rotate += 360
-                        refreshButtonMenuList.setAttribute("style", `--x: ${rotate}deg`);
+                        refreshArrowButtonList.setAttribute("style", `--x: ${rotate}deg`);
                 for (let i=0; i<drinkContent.childNodes.length; i++){
                     if (i<8){
                         drinkContent.childNodes[i].classList.toggle('hidden_block')
