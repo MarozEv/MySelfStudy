@@ -9,25 +9,20 @@ const navHeaderButton = document.querySelectorAll('.nav_header');
 const headerNavigationButtons = document.querySelector('.header_navigation');
 
 function nextMainContent(){
-    mainSecondContent.classList.add('show_block');
-    mainFirstContent.classList.remove('pasity_one');
-    fotterContent.classList.remove('show_block','pasity_one');
-    fotterContent.classList.add('position_absolute');
     document.querySelector('.header_menu').classList.add('header_menu_width');
-    menuHeaderButton.removeEventListener('click', nextMainContent); 
+    menuHeaderButton.removeEventListener('click', nextMainContent);
+    mainFirstContent.classList.remove('pasity_one');
+    fotterContent.classList.remove('pasity_one');
     setTimeout(()=> {       
+        mainFirstContent.classList.remove('show_block');
+        fotterContent.classList.remove('show_block');
+        mainSecondContent.classList.add('show_block');
         fotterContent.classList.add('show_block');
-            },10);
-    setTimeout(()=> {
+    },150);
+    setTimeout(()=> {       
         mainSecondContent.classList.add('pasity_one');
         fotterContent.classList.add('pasity_one');
-            },20);
-    setTimeout(()=> {
-        mainFirstContent.classList.remove('show_block');
-        mainSecondContent.classList.add('position_inherit');
-        mainSecondContent.classList.remove('position_absolute');
-        fotterContent.classList.remove('position_absolute');     
-            },450);
+    },155);
     setTimeout(()=> {
         resourseLogo.addEventListener('click', previousMainContent);
         headerNavigationButtons.addEventListener('click',previousMainNavigation);
@@ -35,24 +30,21 @@ function nextMainContent(){
 };
 
 function previousMainContent(){
-    mainFirstContent.classList.add('show_block');
-    mainSecondContent.classList.remove('position_inherit');
-    fotterContent.classList.remove('pasity_one');
     document.querySelector('.header_menu').classList.remove('header_menu_width');
+    mainSecondContent.classList.remove('pasity_one');
+    fotterContent.classList.remove('pasity_one');
     resourseLogo.removeEventListener('click', previousMainContent);
     headerNavigationButtons.removeEventListener('click',previousMainNavigation);
     setTimeout(()=> {
-        mainFirstContent.classList.add('pasity_one');  
-        mainSecondContent.classList.remove('pasity_one');
-            },1);
+        mainSecondContent.classList.remove('show_block');
+        fotterContent.classList.remove('show_block');
+        mainFirstContent.classList.add('show_block');
+        fotterContent.classList.add('show_block');
+    },150);
     setTimeout(()=> {
-        
-            },2);
-    setTimeout(()=> {
+        mainFirstContent.classList.add('pasity_one');
         fotterContent.classList.add('pasity_one');
-        fotterContent.classList.remove('position_absolute');
-        mainSecondContent.classList.remove('show_block');       
-            },450);
+    },151);
     setTimeout(()=> {menuHeaderButton.addEventListener('click', nextMainContent)},1000);       
 };
 
@@ -501,21 +493,25 @@ allWindow.addEventListener('click', hiddenPupUp(true))
 
 // Chenger Drink Conteiners
 function chengeDrinkContainer(drinks = 'coffee'){
-    drinkContent.innerHTML = '';
-    switch(drinks){
-        case 'coffee':
-            coffeeDrinkContainer();
-                break;
-        case 'tea':
-            teaDrinkContainer();           
-                break;
-        case 'dessert':
-            dessertDrinkContainer();
-                break;
-    }
-clickListenerDrink();   
-listenerOverOut();
-showAnotherBlockMenu()
+    drinkContent.classList.add('opacity_zero');
+    setTimeout(()=> {
+        drinkContent.innerHTML = '';
+        switch(drinks){
+            case 'coffee':
+                coffeeDrinkContainer();
+                    break;
+            case 'tea':
+                teaDrinkContainer();           
+                    break;
+            case 'dessert':
+                dessertDrinkContainer();
+                    break;
+        }
+        drinkContent.classList.remove('opacity_zero');
+        clickListenerDrink();   
+        listenerOverOut();
+        showAnotherBlockMenu()  
+    },150)
 }
 chengeDrinkContainer();
 
@@ -529,8 +525,23 @@ function createBurgerMenu(){
         const addRemoveClassBurger = () => {
             burgerButtonFirtLine.classList.toggle('burger_button_first_line_close');
             burgerButtonSecondLine.classList.toggle('burger_button_second_line_close');
-            headerNavigationButtons.classList.toggle('burger_menu_activ');
-            body.classList.toggle('overflow_hidden')
+                if (!headerNavigationButtons.classList.contains('burger_menu_activ')){
+                    resourseLogo.addEventListener('click', addRemoveClassBurger);
+                    headerNavigationButtons.classList.add('burger_menu_activ');
+                    setTimeout(() =>{
+                        headerNavigationButtons.classList.add('show_burger_menu');
+                    },10)
+                } else {
+                    resourseLogo.removeEventListener('click', addRemoveClassBurger);
+                    setTimeout(() =>{
+                        headerNavigationButtons.classList.remove('show_burger_menu');  
+                    },200);
+                    setTimeout(() =>{
+                        headerNavigationButtons.classList.remove('burger_menu_activ');
+                    },500);
+
+                }
+            // body.classList.toggle('overflow_hidden')
         } 
         const closeOpenBurgerMenu = (event) => {
             if (event.screenY >= 900 || event.target.closest('.nav_header') || event.target.closest('.header_menu')){
@@ -561,6 +572,7 @@ function showAnotherBlockMenu(){
         let flag = true;
         refreshButtonMenuList.addEventListener('click', () => {
             if (flag){
+                drinkContent.classList.add('opacity_zero');
                 flag = false;
                     const styles = window.getComputedStyle(refreshArrowButtonList);
                         let rotate = parseInt(styles.getPropertyValue('--x'));
@@ -568,7 +580,8 @@ function showAnotherBlockMenu(){
                         refreshArrowButtonList.setAttribute("style", `--x: ${rotate}deg`);
                 for (let i=0; i<drinkContent.childNodes.length; i++){
                     if (i<8){
-                        drinkContent.childNodes[i].classList.toggle('hidden_block')
+                        setTimeout(()=>{drinkContent.childNodes[i].classList.toggle('hidden_block');},150);
+                        setTimeout(()=>{drinkContent.classList.remove('opacity_zero');},151);
                     }
                 }
                 setTimeout(()=>{flag = true;},1000);

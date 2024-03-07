@@ -222,7 +222,7 @@ body{
     opacity: 0;
     position: inherit;
     display: none;
-    transition: all .5s linear;
+    transition: all .2s linear;
 }
 
 .favorite_coffee {
@@ -674,12 +674,9 @@ body{
 
 
 .main_container{
-    left: 22px;
-    top: 100px;
     opacity: 0;
     display: none;
-    position: absolute;
-    transition: opacity .5s linear;
+    transition: opacity .15s linear;
 }
 
 .menu_main_text {
@@ -689,8 +686,7 @@ body{
 }
 .main_text {
     text-align: center;
-    max-width: 64%;
-
+    max-width: 56%;
     font-size: 60px;
     line-height: 75px;
     font-weight: 600;    
@@ -792,9 +788,7 @@ body{
     }
 }
 
-.menu_coffee_drinks,
-.menu_tea_drinks,
-.menu_dessert_drinks{
+.menu_coffee_drinks{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -802,6 +796,7 @@ body{
     align-items: center;
     margin-bottom: 98px;
     gap: 38px;
+    transition: all .15s linear;
 }
 .coffee_drinks_container {
     max-width: 308px;
@@ -1070,7 +1065,9 @@ body{
 
 
 
-
+.opacity_zero{
+    opacity: 0;
+}
 .opacity_abit{
     opacity: 0.27;
 }
@@ -1124,7 +1121,14 @@ body{
     .about_image_pare {
         right: 100px;
     }
+    .main_container{
+        left: 0px;
+    }
+    .main_text{
+        max-width: 700px;
+    }
 }
+
 @media screen and ( max-width: 1000px ) {
     .header_navigation nav {
         width: 76%;
@@ -1135,9 +1139,17 @@ body{
     .about_image_pare {
         right: 200px;
     }
+    .main_text{
+        max-width: 700px;
+    }
+
 }
-@media screen and ( max-width: 830px ) {
+
+@media screen and (max-width: 830px) {
     .header_navigation nav {
         width: 84%;
+    }
+    .main_text{
+        max-width: 70%;
     }
 }

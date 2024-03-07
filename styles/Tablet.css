@@ -2,10 +2,11 @@
     /* burger menu 768px */
     .header_navigation{
         position: absolute;
-        display: flex;
+        display: none;
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
+        opacity: 0;
         width: 100%;
         height: 100vh;
         left: 0px;
@@ -13,7 +14,6 @@
         gap: 100px;
         z-index: 3;
         background: #E1D4C9;
-        transform: translateX(-100%);
         transition: all .3s ease-in-out;
     }
     .header_navigation nav{
@@ -62,7 +62,10 @@
         transition: all .2s linear;
     }
     .burger_menu_activ{
-        transform: translateX(0%);
+        display: flex;
+    }
+    .show_burger_menu{
+        opacity: 1;
     }
     .burger_button_first_line_close{
         position: absolute;
@@ -211,6 +214,9 @@
     .menu_dessert_drinks {
         flex-direction: column;
     }
+    .main_text {
+        max-width: 84%;
+    }
 }
 
 @media screen and ( max-width: 650px ) {
@@ -238,5 +244,8 @@
     }
     .menu_icons{
         gap: 10px;
+    }
+    .main_text {
+        max-width: 88%;
     }
 }
