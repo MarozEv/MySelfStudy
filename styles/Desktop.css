@@ -1096,6 +1096,7 @@ body{
 .position_inherit{
     position: inherit;
     top: 0px;
+    left: 0px;
 }
 .pasity_one{
     opacity: 1;
