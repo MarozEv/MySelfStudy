@@ -4,7 +4,7 @@ const prevueAudio = document.querySelector('.play-prev');
 const playList = document.querySelector('.play-list');
 
 import audioPlayList from './playList.js'
-console.log (audioPlayList)
+
 
 
 let isPlay = false;
